@@ -61,3 +61,10 @@
 ・閲覧数表示機能  
 ・バリデーション  
 ・ページネーション 
+
+＃開発環境
+・OS：Mac + ターミナル または Windows11 + Git Bash または Windows10 + Git Bash
+・言語：HTML、CSS、JavaScript、Ruby
+・フレームワーク：Ruby on Rails
+・JSライブラリ：jQuery
+・データベース：PostgreSQL
