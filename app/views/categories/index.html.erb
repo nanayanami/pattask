@@ -1,0 +1,9 @@
+<h1>カテゴリー一覧</h1>
+<p>チーム: <%= @team.name %></p>
+<%= link_to "カテゴリーを作成", new_team_category_path(@team) %>
+
+<% @categories.each do |category| %>
+  <div>
+    <h3><%= link_to category.name, team_category_path(@team, category) %></h3>
+  </div>
+<% end %>

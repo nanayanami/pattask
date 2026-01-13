@@ -1,6 +1,6 @@
 <h1>カテゴリーを作成する</h1>
-<%= form_with model: @category, local:true do |f| %>
-    <h4>カテゴリー名</h4>
-    <%= f.text_field :name %>
-    <%= f.submit "カテゴリーを作成する" %>
+<%= form_with model: [@team, @category], local: true do |f| %>
+  <h4>カテゴリー名</h4>
+  <%= f.text_field :name %>
+  <%= f.submit "カテゴリーを作成する" %>
 <% end %>

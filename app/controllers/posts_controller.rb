@@ -1,20 +1,36 @@
 class PostsController < ApplicationController
+  before_action :set_team
+  before_action :set_category
+
   def new
-    @post = Post.new
+    @post = @category.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = @category.posts.build(post_params)
+    @post.team_id = @team.id
     if @post.save
-      redirect_to root_path
+      redirect_to team_category_posts_path(@team, @category), notice: '投稿を作成しました'
     else
       render :new, status: :unprocessable_entity
     end
   end
 
+  def index
+    @posts = @category.posts
+  end
+
   private
 
+  def set_team
+    @team = Team.find(params[:team_id])
+  end
+
+  def set_category
+    @category = @team.categories.find(params[:category_id])
+  end
+
   def post_params
-    params.require(:post).permit(:title, :post, :image_id, :status, :user_id, :team_id, :category_id)
+    params.require(:post).permit(:title, :post, :image_id, :status, :user_id)
   end
 end

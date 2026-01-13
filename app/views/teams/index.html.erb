@@ -1,2 +1,8 @@
-<h1>Teams#index</h1>
-<p>Find me in app/views/teams/index.html.erb</p>
+<h1>チーム一覧</h1>
+<%= link_to "新規チーム作成", new_team_path %>
+
+<% @teams.each do |team| %>
+  <div>
+    <h2><%= link_to team.name, team_path(team) %></h2>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>投稿一覧</h1>
+<p>チーム: <%= @team.name %></p>
+<p>カテゴリー: <%= @category.name %></p>
+
+<%= link_to "新規投稿", new_team_category_post_path(@team, @category) %>
+
+<% @posts.each do |post| %>
+  <div>
+    <h3><%= post.title %></h3>
+    <p><%= post.post %></p>
+  </div>
+<% end %>

@@ -1,8 +1,7 @@
 class TeamsController < ApplicationController
-  def index
-  end
 
   def show
+    @team = Team.find(params[:id])
   end
 
   def new
@@ -12,10 +11,14 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
-      redirect_to root_path,  notice: 'チームを作成しました'
+      redirect_to team_path(@team), notice: 'チームを作成しました'
     else
       render :new, status: :unprocessable_entity
     end 
+  end
+
+  def index
+    @teams = Team.all
   end
 
   def edit

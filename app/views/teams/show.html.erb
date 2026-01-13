@@ -1,2 +1,10 @@
-<h1>Teams#show</h1>
-<p>Find me in app/views/teams/show.html.erb</p>
+<h1><%= @team.name %></h1>
+<%= link_to "カテゴリーを作成", new_team_category_path(@team) %>
+<%= link_to "カテゴリー一覧", team_categories_path(@team) %>
+
+<h2>カテゴリー一覧</h2>
+<% @team.categories.each do |category| %>
+  <div>
+    <h3><%= link_to category.name, team_category_path(@team, category) %></h3>
+  </div>
+<% end %>
