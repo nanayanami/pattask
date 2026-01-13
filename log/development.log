@@ -1,0 +1,259 @@
+Started GET "/" for ::1 at 2026-01-13 13:12:32 +0900
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 378)
+Completed 200 OK in 705ms (Views: 165.3ms | ActiveRecord: 0.0ms | Allocations: 8809)
+
+
+Started GET "/top" for ::1 at 2026-01-13 13:27:45 +0900
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 5.5ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 1507.5ms | Allocations: 86222)
+Completed 500 Internal Server Error in 1566ms (ActiveRecord: 0.0ms | Allocations: 87164)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/pattask/tmp/cache/assets/sprockets/v4.0.0/kq/kqJ2lOUrHbn4l7BHIOoYi0TU0Le83AyDstSx3lS7Otg.cache.22000.25996.553703, C:/pattask/tmp/cache/assets/sprockets/v4.0.0/kq/kqJ2lOUrHbn4l7BHIOoYi0TU0Le83AyDstSx3lS7Otg.cache)):
+  
+sprockets (4.2.2) lib/sprockets/path_utils.rb:362:in `rename'
+sprockets (4.2.2) lib/sprockets/path_utils.rb:362:in `atomic_write'
+sprockets (4.2.2) lib/sprockets/cache/file_store.rb:112:in `set'
+sprockets (4.2.2) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.2.2) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.2.2) lib/sprockets/loader.rb:343:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.2) lib/sprockets/bundle.rb:27:in `call'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.2) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.2) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.2) lib/sprockets/bundle.rb:32:in `block in call'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each_key'
+C:/Ruby32-x64/lib/ruby/3.2.0/set.rb:511:in `each'
+sprockets (4.2.2) lib/sprockets/bundle.rb:31:in `call'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:84:in `call_processor'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:66:in `block in call_processors'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:65:in `reverse_each'
+sprockets (4.2.2) lib/sprockets/processor_utils.rb:65:in `call_processors'
+sprockets (4.2.2) lib/sprockets/loader.rb:184:in `load_from_unloaded'
+sprockets (4.2.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.2) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.2) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.2) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:382:in `run_task'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:372:in `block (3 levels) in create_worker'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:361:in `loop'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:361:in `block (2 levels) in create_worker'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:358:in `catch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:358:in `block in create_worker'
+Started GET "/" for ::1 at 2026-01-13 13:33:18 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.5ms | Allocations: 378)
+Completed 200 OK in 145ms (Views: 33.2ms | ActiveRecord: 0.0ms | Allocations: 4835)
+
+
+Started GET "/top" for ::1 at 2026-01-13 13:33:33 +0900
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 2.5ms | Allocations: 99)
+  Rendered layout layouts/application.html.erb (Duration: 571.8ms | Allocations: 41132)
+Completed 200 OK in 600ms (Views: 589.0ms | ActiveRecord: 0.0ms | Allocations: 42068)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (4.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-01-13 05:09:40.550188', '2026-01-13 05:09:40.550193') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTeams (20260113044635)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "teams" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260113044635') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateCategories (20260113051154)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "categories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "team_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260113051154') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20260113052756)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "team_id" integer, "category_id" integer, "title" varchar, "post" text, "image_id" varchar, "status" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260113052756') RETURNING "version"[0m
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20260113054213)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "profile_image_id" varchar, "name" varchar, "user_name" varchar, "profile" text, "email" varchar, "encrypted_password" varchar, "reset_password_token" varchar, "reset_password_sent_at" datetime(6), "remember_created_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260113054213') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2026-01-13 15:26:06 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.8ms | Allocations: 378)
+Completed 200 OK in 188ms (Views: 47.3ms | ActiveRecord: 0.0ms | Allocations: 4838)
+
+
+Started GET "/top" for ::1 at 2026-01-13 15:26:19 +0900
+Started GET "/posts/new" for ::1 at 2026-01-13 15:26:19 +0900
+Processing by PostsController#new as HTML
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 4.0ms | Allocations: 233)
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 215.0ms | Allocations: 13096)
+  Rendered layout layouts/application.html.erb (Duration: 548.7ms | Allocations: 69320)
+Completed 200 OK in 979ms (Views: 569.4ms | ActiveRecord: 22.7ms | Allocations: 92450)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 817.8ms | Allocations: 89309)
+Completed 200 OK in 914ms (Views: 875.4ms | ActiveRecord: 0.0ms | Allocations: 95330)
+
+
+Started GET "/posts/new" for ::1 at 2026-01-13 15:27:59 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.8ms | Allocations: 801)
+  Rendered layout layouts/application.html.erb (Duration: 125.3ms | Allocations: 20405)
+Completed 200 OK in 197ms (Views: 150.2ms | ActiveRecord: 15.9ms | Allocations: 26244)
+
+
+Started GET "/" for ::1 at 2026-01-13 15:29:43 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/railties-7.1.6/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.9ms | Allocations: 378)
+Completed 200 OK in 174ms (Views: 44.0ms | ActiveRecord: 0.0ms | Allocations: 4838)
+
+
+Started GET "/top" for ::1 at 2026-01-13 15:29:44 +0900
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 2.3ms | Allocations: 99)
+Started GET "/posts/new" for ::1 at 2026-01-13 15:29:45 +0900
+Processing by PostsController#new as HTML
+  Rendered layout layouts/application.html.erb (Duration: 755.6ms | Allocations: 48407)
+Completed 200 OK in 793ms (Views: 779.2ms | ActiveRecord: 0.0ms | Allocations: 49348)
+
+
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 33.2ms | Allocations: 1260)
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | Allocations: 2429)
+Completed 200 OK in 307ms (Views: 68.9ms | ActiveRecord: 22.5ms | Allocations: 30680)
+
+
+Started POST "/posts" for ::1 at 2026-01-13 15:30:44 +0900
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"渋谷2‐1　広告地域拡大", "content"=>""}, "commit"=>"投稿する"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 990)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'content' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started GET "/posts/new" for ::1 at 2026-01-13 15:31:19 +0900
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms | Allocations: 471)
+
+
+  
+NameError (uninitialized constant PostsController::Posts):
+  
+app/controllers/posts_controller.rb:3:in `new'
+Started GET "/posts/new" for ::1 at 2026-01-13 15:31:39 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 796)
+  Rendered layout layouts/application.html.erb (Duration: 205.2ms | Allocations: 20391)
+Completed 200 OK in 387ms (Views: 257.5ms | ActiveRecord: 35.6ms | Allocations: 26235)
+
+
+Started POST "/posts" for ::1 at 2026-01-13 15:31:47 +0900
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"渋谷2‐1　広告地域拡大", "content"=>""}, "commit"=>"投稿する"}
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms | Allocations: 875)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'content' for Post.):
+  
+app/controllers/posts_controller.rb:7:in `create'
+Started GET "/posts/new" for ::1 at 2026-01-13 15:34:29 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 688)
+  Rendered layout layouts/application.html.erb (Duration: 116.5ms | Allocations: 20284)
+Completed 200 OK in 191ms (Views: 138.9ms | ActiveRecord: 17.4ms | Allocations: 26104)
+
+
+Started POST "/posts" for ::1 at 2026-01-13 15:34:37 +0900
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"渋谷2　広告地域拡大", "post"=>""}, "commit"=>"投稿する"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:8:in `create'
+  [1m[36mPost Create (5.6ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "team_id", "category_id", "title", "post", "image_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", nil], ["team_id", nil], ["category_id", nil], ["title", "渋谷2　広告地域拡大"], ["post", ""], ["image_id", nil], ["status", nil], ["created_at", "2026-01-13 06:34:38.016775"], ["updated_at", "2026-01-13 06:34:38.016775"]]
+  ↳ app/controllers/posts_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:8:in `create'
+Redirected to http://localhost:3000/top
+Completed 302 Found in 30ms (ActiveRecord: 11.4ms | Allocations: 3553)
+
+
+Started GET "/top" for ::1 at 2026-01-13 15:34:38 +0900
+Processing by HomesController#top as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 2.1ms | Allocations: 90)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 1467)
+Completed 200 OK in 43ms (Views: 32.6ms | ActiveRecord: 0.0ms | Allocations: 1966)
+
+
