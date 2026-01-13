@@ -20,6 +20,10 @@ class PostsController < ApplicationController
     @posts = @category.posts
   end
 
+  def show
+    @post = @category.posts.find(params[:id])
+  end
+
   private
 
   def set_team

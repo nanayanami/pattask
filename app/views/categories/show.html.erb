@@ -3,13 +3,14 @@
 
 <%= link_to "新規投稿", new_team_category_post_path(@team, @category) %>
 <%= link_to "カテゴリー一覧に戻る", team_categories_path(@team) %>
+<%= link_to "チーム一覧に戻る", teams_path %>
 
 <h2>投稿一覧</h2>
 <% if @category.posts.any? %>
   <% @category.posts.each do |post| %>
     <div>
-      <h3><%= post.title %></h3>
-      <p><%= post.post %></p>
+      <h3><%= link_to post.title, team_category_post_path(@team, @category, post) %></h3>
+      <p><%= truncate(post.post, length: 100) %></p>
     </div>
   <% end %>
 <% else %>

@@ -1,0 +1,12 @@
+<h1><%= @post.title %></h1>
+<p>チーム: <%= @team.name %></p>
+<p>カテゴリー: <%= @category.name %></p>
+
+<div>
+  <h2>内容</h2>
+  <p><%= @post.post %></p>
+</div>
+
+<%= link_to "投稿一覧に戻る", team_category_posts_path(@team, @category) %>
+<%= link_to "カテゴリーに戻る", team_category_path(@team, @category) %>
+<%= link_to "チーム一覧に戻る", teams_path %>
