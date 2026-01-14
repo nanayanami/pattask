@@ -22,6 +22,20 @@ class CategoriesController < ApplicationController
     @category = @team.categories.find(params[:id])
   end
 
+  def edit
+    @category = @team.categories.find(params[:id])
+  end
+
+  def update
+    @category = @team.categories.find(params[:id])
+    if @category.update(category_params)
+      redirect_to team_category_post_path(@team, @category, ), notice: 'カテゴリーを更新しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
   private
 
   def set_team

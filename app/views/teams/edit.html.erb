@@ -1,2 +1,7 @@
-<h1>Teams#edit</h1>
-<p>Find me in app/views/teams/edit.html.erb</p>
+<h1>チーム更新</h1>
+<%= form_with model: @team, local: true do |f| %>
+  <h4>チーム名</h4>
+  <%= f.text_field :name %>
+  <%= f.submit "更新する" %>
+<% end %>
+

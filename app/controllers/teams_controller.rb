@@ -1,9 +1,5 @@
 class TeamsController < ApplicationController
 
-  def show
-    @team = Team.find(params[:id])
-  end
-
   def new
     @team = Team.new
   end
@@ -21,10 +17,22 @@ class TeamsController < ApplicationController
     @teams = Team.all
   end
 
+  
+  def show
+    @team = Team.find(params[:id])
+  end
+
   def edit
+    @team = Team.find(params[:id])
   end
 
   def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      redirect_to team_path(@team), notice: 'チームを更新しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
 
