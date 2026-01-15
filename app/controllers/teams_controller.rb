@@ -35,6 +35,15 @@ class TeamsController < ApplicationController
     end
   end
 
+  def destroy
+    @team = Team.find(params[:id])
+    if @team.destroy
+      redirect_to teams_path, notice: 'チームを削除しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
 
   private
 

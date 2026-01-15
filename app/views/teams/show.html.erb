@@ -1,7 +1,9 @@
 <h1><%= @team.name %></h1>
-<%= link_to "カテゴリーを作成", new_team_category_path(@team) %>
-<%= link_to "カテゴリー一覧", team_categories_path(@team) %>
-<%= link_to "チーム一覧に戻る", teams_path %>
+<%= link_to "新規カテゴリーを作成", new_team_category_path(@team) %><br>
+<%= link_to "チームを編集", edit_team_path(@team) %><br>
+<%= link_to '削除する',  team_path(@team),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"} %><br>
+<%= link_to "カテゴリー一覧", team_categories_path(@team) %><br>
+<%= link_to "チーム一覧に戻る", teams_path %><br>
 
 <h2>カテゴリー一覧</h2>
 <% @team.categories.each do |category| %>

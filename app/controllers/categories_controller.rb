@@ -29,12 +29,20 @@ class CategoriesController < ApplicationController
   def update
     @category = @team.categories.find(params[:id])
     if @category.update(category_params)
-      redirect_to team_category_post_path(@team, @category, ), notice: 'カテゴリーを更新しました'
+      redirect_to team_category_path(@team, @category), notice: 'カテゴリーを更新しました'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
+  def destroy
+    @category = @team.categories.find(params[:id])
+    if @category.destroy
+      redirect_to team_categories_path(@team), notice: 'カテゴリーを削除しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
   private
 

@@ -1,9 +1,16 @@
+
+
 <h1>チーム一覧</h1>
-<%= link_to "新規チーム作成", new_team_path %>
-<%= link_to "トップページに戻る", root_path %>
+
+
+<%= link_to "チームを新規作成", new_team_path %><br>
+<%= link_to "トップページに戻る", root_path %><br>
 
 <% @teams.each do |team| %>
-  <div>
-    <h2><%= link_to team.name, team_path(team) %></h2>
+  <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc;">
+    <h3><%= team.name %></h3>
+
+    <%= link_to "チーム名編集", edit_team_path(team) %> |
+    <%= link_to "カテゴリーへ", team_path(team) %> 
   </div>
 <% end %>

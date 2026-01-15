@@ -37,6 +37,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = @category.posts.find(params[:id])
+    if @post.destroy
+      redirect_to team_category_posts_path(@team, @category), notice: '投稿を削除しました'
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+
+
+  
   private
 
   def set_team
@@ -48,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :post, :image_id, :status, :user_id)
+    params.require(:post).permit(:title, :content, :image_id, :status, :user_id)
   end
 end

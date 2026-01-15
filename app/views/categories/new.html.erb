@@ -2,5 +2,6 @@
 <%= form_with model: [@team, @category], local: true do |f| %>
   <h4>カテゴリー名</h4>
   <%= f.text_field :name %>
-  <%= f.submit "カテゴリーを作成する" %>
+  <%= f.submit "カテゴリーを作成する" %><br>
+  <%= link_to "カテゴリー一覧に戻る", team_categories_path(@team) %><br>
 <% end %>

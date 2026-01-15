@@ -4,9 +4,10 @@
 
 <div>
   <h2>内容</h2>
-  <p><%= @post.post %></p>
+  <%= @post.content %>
 </div>
-
-<%= link_to "投稿一覧に戻る", team_category_posts_path(@team, @category) %>
-<%= link_to "カテゴリーに戻る", team_category_path(@team, @category) %>
-<%= link_to "チーム一覧に戻る", teams_path %>
+<%= link_to "編集する",  edit_team_category_post_path(@team, @category, @post) %><br>
+<%= link_to '削除する',  team_category_post_path(@team, @category, @post),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"} %><br>
+<%= link_to "投稿一覧に戻る", team_category_posts_path(@team, @category) %><br>
+<%= link_to "カテゴリーに戻る", team_category_path(@team, @category) %><br>
+<%= link_to "チーム一覧に戻る", teams_path %><br>
