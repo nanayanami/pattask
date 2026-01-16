@@ -1,7 +1,7 @@
 
 # pattask
 
-<img width="30％" alt="ロゴ" src="https://github.com/user-attachments/assets/54d07db2-860c-4c8e-aa06-e509fe16d3ff" />
+<img width="100％" alt="ロゴ" src="https://github.com/user-attachments/assets/54d07db2-860c-4c8e-aa06-e509fe16d3ff" />
 
 
 # 概要
