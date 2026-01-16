@@ -1,16 +1,28 @@
-.title {
-    font-family: "Arial Black", "Helvetica", sans-serif;
-    font-weight: 700;
-}
 
 .sub-title {
-   font-family: serif; 
+     font-family: "Arial Black", "Helvetica", sans-serif;
+     font-weight: 700;
 }
 
 .cover {
     height: 100%;
     width: 100%;
     display: table;
+    background-image: url(/assets/top.jpg);
     
+    background-color:rgba(255,255,255,0.4);
+    background-blend-mode:lighten;
+    background-size: 100% 100%;
+}
 
+.title-image {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+.text-center {
+    display: table-cell;
+    vertical-align: middle;
 }
