@@ -68,3 +68,6 @@ group :test do
 end
 
 gem "image_processing", "~> 1.2"
+
+gem 'bootstrap', '~> 5.3.0'
+gem 'jquery-rails'
