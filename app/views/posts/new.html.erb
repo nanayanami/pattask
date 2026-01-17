@@ -1,4 +1,4 @@
-<div class="cover-new">
+<div class="cover">
   <div class="container d-flex flex-column align-items-center">
     <div class="row mt-5">
       <h1 class="font-eight-normal">新規投稿</h1>
@@ -19,17 +19,10 @@
       <% end %>
     </div>
   </div>
-</div>
 
 
 
 
 
-<h1>新規投稿</h1>
-<%= form_with model: [@team, @category, @post], local: true do |f| %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>内容</h4>
-  <%= f.rich_text_area :content %>
-  <%= f.submit "投稿する" %>
-<% end %>
+
+

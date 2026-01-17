@@ -1,12 +1,22 @@
-<h1>投稿一覧</h1>
-<p>チーム: <%= @team.name %></p>
-<p>カテゴリー: <%= @category.name %></p>
+<div class="posts-index cover">
+  <h1 class="posts-index__title">投稿一覧</h1>
+  <p class="posts-index__meta">チーム: <%= @team.name %></p>
+  <p class="posts-index__meta">カテゴリー: <%= @category.name %></p>
 
-<%= link_to "新規投稿", new_team_category_post_path(@team, @category) %>
+  <%= link_to "新規投稿", new_team_category_post_path(@team, @category), class: "btn btn-primary btn-lg posts-index__new" %>
 
-<% @posts.each do |post| %>
-  <div>
-    <h3><%= link_to post.title, team_category_post_path(@team, @category, post) %></h3>
-    <p><%= truncate(post.post, length: 100) %></p>
-  </div>
-<% end %>
+  <% @posts.each do |post| %>
+    <div class="posts-index__item">
+      <div class="d-flex justify-content-between align-items-center posts-index__item-header">
+        <h3 class="mb-0 posts-index__item-title"><%= link_to post.title, team_category_post_path(@team, @category, post) %></h3>
+        <div class="d-flex gap-2 posts-index__item-actions">
+          <%= link_to "編集", edit_team_category_post_path(@team, @category, post), class: "btn btn-success btn-sm posts-index__edit-btn" %>
+          <%= link_to "削除", team_category_post_path(@team, @category, post),
+                      data: { turbo_method: :delete, turbo_confirm: "削除してよろしいですか？" },
+                      class: "btn btn-danger btn-sm posts-index__delete-btn" %>
+        </div>
+      </div>
+      <p class="posts-index__item-body"><%= truncate(post.post, length: 100) %></p>
+    </div>
+  <% end %>
+</div>

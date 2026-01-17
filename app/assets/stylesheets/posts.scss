@@ -1,0 +1,99 @@
+h1 {
+    font-family: "Arial Black", "Helvetica", sans-serif;
+  }
+  
+  .cover {
+    height: 100%;
+    width: 100%;
+    background-image: url(/assets/top.jpg);
+    background-color: rgba(255, 255, 255, 0.4);
+    background-blend-mode: lighten;
+    background-size: 100% 100%;
+  }
+  
+  .form-label {
+    font-size: 20px;
+  }
+  
+  .form-group {
+    width: 600px;
+  }
+
+  .rich-text-group {
+    width: 700px;
+  }
+
+  .rich-text-group trix-editor {
+    width: 100%;
+  }
+
+
+
+  .posts-index {
+    padding: 16px 0;
+  }
+
+  .posts-index__title {
+    font-family: "Arial Black", "Helvetica", sans-serif;
+    font-size: 50x;
+    margin-bottom: 8px;
+  }
+
+  .posts-index__meta {
+    font-family: "Arial Black", "Helvetica", sans-serif;
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 4px;
+    padding-right: 30px;
+    text-align: right;
+  }
+
+  .posts-index__new {
+    margin: 12px 0 20px;
+    padding-right: 16px;
+  }
+
+  .posts-index__item {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+    padding-right: 30px;
+  }
+
+  .posts-index__item-title a {
+    font-family: "Arial Black", "Helvetica", sans-serif;
+    color: #222;
+    text-decoration: none;
+  }
+
+  .posts-index__item-title a:hover {
+    text-decoration: underline;
+  }
+
+  .posts-index__item-body {
+    margin-top: 6px;
+    color: #444;
+  }
+
+  .btn.posts-index__edit-btn {
+    background-color: #62bf7f;
+    border-color: #62bf7f;
+    color: #fff;
+  }
+
+  .btn.posts-index__edit-btn:hover {
+    background-color: #51b372;
+    border-color: #51b372;
+    color: #fff;
+  }
+
+  .btn.posts-index__delete-btn {
+    background-color: #e47070;
+    border-color: #e47070;
+    color: #fff;
+  }
+
+  .btn.posts-index__delete-btn:hover {
+    background-color: #d86161;
+    border-color: #d86161;
+    color: #fff;
+  }
