@@ -1,5 +1,8 @@
 h1 {
     font-family: "Arial Black", "Helvetica", sans-serif;
+    font-size: 25px;
+    margin-bottom: 8px;
+    text-align: center;
   }
   
   .cover {
@@ -25,6 +28,12 @@ h1 {
 
   .rich-text-group trix-editor {
     width: 100%;
+  min-height: 220px;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: auto;
   }
 
 
