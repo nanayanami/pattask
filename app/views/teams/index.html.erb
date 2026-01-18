@@ -1,16 +1,21 @@
 
 
-<h1>チーム一覧</h1>
 
+<div class="posts cover">
+  <h1 class="posts-title">チーム一覧</h1>
 
-<%= link_to "チームを新規作成", new_team_path %><br>
-<%= link_to "トップページに戻る", root_path %><br>
+  <%= link_to "チーム作成", new_team_path, class: "btn btn-primary btn-lg posts-new me-2" %>
+  <%= link_to "トップページに戻る", root_path, class: "btn btn-primary btn-lg posts-new" %><br>
 
-<% @teams.each do |team| %>
-  <div style="margin-bottom: 20px; border-bottom: 1px solid #ccc;">
-    <h3><%= team.name %></h3>
-
-    <%= link_to "チーム名編集", edit_team_path(team) %> |
-    <%= link_to "カテゴリーへ", team_path(team) %> 
-  </div>
-<% end %>
+  <% @teams.each do |team| %>
+    <div class="post-item">
+      <div class="d-flex justify-content-between align-items-center post-head">
+        <h3 class="mb-0 post-title"><%= team.name %></h3>
+        <div class="d-flex gap-2 post-actions">
+          <%= link_to "チーム名編集", edit_team_path(team), class: "btn btn-success btn-sm btn-edit" %>
+            <%= link_to "カテゴリーへ", team_path(team),class: "btn btn-danger btn-sm btn-del" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
