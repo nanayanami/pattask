@@ -12792,3 +12792,660 @@ Completed 200 OK in 424ms (Views: 299.6ms | ActiveRecord: 1.5ms | Allocations: 1
 Completed 200 OK in 352ms (Views: 289.2ms | ActiveRecord: 6.3ms | Allocations: 13882)
 
 
+Started GET "/" for ::1 at 2026-01-17 11:05:32 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 3570.0ms | Allocations: 92446)
+  Rendered layout layouts/application.html.erb (Duration: 3812.3ms | Allocations: 134134)
+Completed 200 OK in 3952ms (Views: 3857.7ms | ActiveRecord: 0.0ms | Allocations: 138767)
+
+
+Started GET "/teams" for ::1 at 2026-01-17 11:05:45 +0900
+Processing by TeamsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering teams/index.html.erb within layouts/application
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  ↳ app/views/teams/index.html.erb:9
+  Rendered teams/index.html.erb within layouts/application (Duration: 47.9ms | Allocations: 6484)
+  Rendered layout layouts/application.html.erb (Duration: 147.8ms | Allocations: 13021)
+Completed 200 OK in 311ms (Views: 150.1ms | ActiveRecord: 15.3ms | Allocations: 21296)
+
+
+Started GET "/" for ::1 at 2026-01-17 11:05:52 +0900
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 9.1ms | Allocations: 567)
+  Rendered layout layouts/application.html.erb (Duration: 93.9ms | Allocations: 6951)
+Completed 200 OK in 100ms (Views: 95.4ms | ActiveRecord: 0.0ms | Allocations: 7206)
+
+
+Started GET "/teams/1" for ::1 at 2026-01-17 11:05:52 +0900
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/views/teams/show.html.erb:9
+  Rendered teams/show.html.erb within layouts/application (Duration: 402.7ms | Allocations: 15786)
+  Rendered layout layouts/application.html.erb (Duration: 525.4ms | Allocations: 22361)
+Completed 200 OK in 551ms (Views: 526.6ms | ActiveRecord: 1.4ms | Allocations: 24913)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-17 11:05:54 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (1.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 73.4ms | Allocations: 11324)
+  Rendered layout layouts/application.html.erb (Duration: 170.6ms | Allocations: 17886)
+Completed 200 OK in 204ms (Views: 183.3ms | ActiveRecord: 3.1ms | Allocations: 19504)
+
+
+Started GET "/teams/1/categories/6/posts/new" for ::1 at 2026-01-17 11:05:55 +0900
+Processing by PostsController#new as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 107.3ms | Allocations: 9723)
+  Rendered layout layouts/application.html.erb (Duration: 204.2ms | Allocations: 16042)
+Completed 200 OK in 238ms (Views: 215.4ms | ActiveRecord: 1.5ms | Allocations: 17883)
+
+
+Started GET "/teams/1/categories" for ::1 at 2026-01-17 11:05:56 +0900
+Processing by CategoriesController#index as HTML
+  Parameters: {"team_id"=>"1"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 884)
+  Rendered layout layouts/application.html.erb (Duration: 90.8ms | Allocations: 7399)
+Completed 200 OK in 102ms (Views: 92.0ms | ActiveRecord: 0.3ms | Allocations: 8100)
+
+
+Started GET "/teams/1/categories/6/posts/new" for ::1 at 2026-01-17 11:05:57 +0900
+Processing by PostsController#new as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 895)
+  Rendered layout layouts/application.html.erb (Duration: 102.0ms | Allocations: 7209)
+Completed 200 OK in 120ms (Views: 104.0ms | ActiveRecord: 0.6ms | Allocations: 8652)
+
+
+Started POST "/teams/1/categories/6/posts" for ::1 at 2026-01-17 11:06:01 +0900
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"2", "content"=>""}, "commit"=>"投稿する", "team_id"=>"1", "category_id"=>"6"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+  [1m[36mTeam Load (3.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "team_id", "category_id", "title", "post", "image_id", "status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", nil], ["team_id", 1], ["category_id", 6], ["title", "2"], ["post", nil], ["image_id", nil], ["status", nil], ["created_at", "2026-01-17 02:06:02.197911"], ["updated_at", "2026-01-17 02:06:02.197911"]]
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+  [1m[36mActionText::RichText Create (0.5ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("name", "body", "record_type", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["name", "content"], ["body", ""], ["record_type", "Post"], ["record_id", 15], ["created_at", "2026-01-17 02:06:02.255809"], ["updated_at", "2026-01-17 02:06:02.255809"]]
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+  [1m[36mPost Update (0.3ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = ? WHERE "posts"."id" = ?[0m  [["updated_at", "2026-01-17 02:06:02.261145"], ["id", 15]]
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (4.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:12:in `create'
+Redirected to http://localhost:3000/teams/1/categories/6/posts
+Completed 302 Found in 111ms (ActiveRecord: 9.8ms | Allocations: 11077)
+
+
+Started GET "/teams/1/categories/6/posts" for ::1 at 2026-01-17 11:06:02 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Parameters: {"team_id"=>"1", "category_id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.0ms | Allocations: 1369)
+  Rendered layout layouts/application.html.erb (Duration: 112.8ms | Allocations: 7956)
+Completed 200 OK in 134ms (Views: 114.1ms | ActiveRecord: 0.8ms | Allocations: 9330)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-17 11:06:05 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:20
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 4.1ms | Allocations: 323)
+  Rendered posts/show.html.erb within layouts/application (Duration: 31.6ms | Allocations: 2335)
+  Rendered layout layouts/application.html.erb (Duration: 111.9ms | Allocations: 8856)
+Completed 200 OK in 133ms (Views: 113.2ms | ActiveRecord: 0.8ms | Allocations: 10852)
+
+
+Started GET "/teams/1/categories/6/posts/14" for ::1 at 2026-01-17 11:06:05 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"14"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:20
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 79)
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1266)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 7791)
+Completed 200 OK in 112ms (Views: 91.8ms | ActiveRecord: 1.0ms | Allocations: 9661)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-17 11:06:06 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:20
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.1ms | Allocations: 79)
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1266)
+  Rendered layout layouts/application.html.erb (Duration: 87.7ms | Allocations: 7779)
+Completed 200 OK in 107ms (Views: 89.0ms | ActiveRecord: 0.7ms | Allocations: 9649)
+
+
+Started GET "/teams/1/categories/6/posts/14" for ::1 at 2026-01-17 11:06:07 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"14"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 14], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:20
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.4ms | Allocations: 79)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1266)
+  Rendered layout layouts/application.html.erb (Duration: 92.7ms | Allocations: 7769)
+Completed 200 OK in 108ms (Views: 93.8ms | ActiveRecord: 0.9ms | Allocations: 9639)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-17 11:06:08 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:20
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.3ms | Allocations: 79)
+  Rendered posts/show.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1266)
+  Rendered layout layouts/application.html.erb (Duration: 99.9ms | Allocations: 7807)
+Completed 200 OK in 118ms (Views: 101.5ms | ActiveRecord: 0.9ms | Allocations: 9677)
+
+
+Started GET "/teams/1/categories/6/posts/15/edit" for ::1 at 2026-01-17 11:06:20 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/edit.html.erb:6
+  Rendered posts/edit.html.erb within layouts/application (Duration: 12.3ms | Allocations: 1662)
+  Rendered layout layouts/application.html.erb (Duration: 105.9ms | Allocations: 8031)
+Completed 200 OK in 125ms (Views: 106.8ms | ActiveRecord: 0.9ms | Allocations: 9961)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-17 11:06:22 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1293)
+  Rendered layout layouts/application.html.erb (Duration: 107.7ms | Allocations: 7812)
+Completed 200 OK in 121ms (Views: 109.0ms | ActiveRecord: 0.7ms | Allocations: 9048)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-17 11:07:31 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 7.9ms | Allocations: 304)
+  Rendered posts/show.html.erb within layouts/application (Duration: 48.2ms | Allocations: 2534)
+  Rendered layout layouts/application.html.erb (Duration: 326.7ms | Allocations: 42885)
+Completed 200 OK in 578ms (Views: 351.4ms | ActiveRecord: 21.5ms | Allocations: 65472)
+
+
+Started GET "/teams/1/categories/6/posts/15/edit" for ::1 at 2026-01-17 11:07:35 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/edit.html.erb:6
+  Rendered posts/edit.html.erb within layouts/application (Duration: 10.3ms | Allocations: 1735)
+  Rendered layout layouts/application.html.erb (Duration: 109.7ms | Allocations: 8100)
+Completed 200 OK in 132ms (Views: 111.6ms | ActiveRecord: 0.9ms | Allocations: 10033)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-17 11:08:58 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (2.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (1.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 55.3ms | Allocations: 305)
+  Rendered posts/show.html.erb within layouts/application (Duration: 260.1ms | Allocations: 2530)
+  Rendered layout layouts/application.html.erb (Duration: 1311.8ms | Allocations: 42734)
+Completed 200 OK in 2822ms (Views: 1566.6ms | ActiveRecord: 83.2ms | Allocations: 65407)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-18 11:03:09 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.9ms | Allocations: 349)
+  Rendered posts/show.html.erb within layouts/application (Duration: 185.1ms | Allocations: 11608)
+  Rendered layout layouts/application.html.erb (Duration: 1270.1ms | Allocations: 88399)
+Completed 200 OK in 2276ms (Views: 1328.9ms | ActiveRecord: 19.6ms | Allocations: 132017)
+
+
+Started GET "/teams/1/categories/6/posts/15/edit" for ::1 at 2026-01-18 11:03:20 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/edit.html.erb:6
+  Rendered posts/edit.html.erb within layouts/application (Duration: 37.2ms | Allocations: 2434)
+  Rendered layout layouts/application.html.erb (Duration: 154.4ms | Allocations: 8750)
+Completed 200 OK in 247ms (Views: 156.4ms | ActiveRecord: 1.8ms | Allocations: 10704)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:07:53 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 114.7ms | Allocations: 9241)
+  Rendered layout layouts/application.html.erb (Duration: 3973.9ms | Allocations: 93788)
+Completed 200 OK in 4221ms (Views: 3999.3ms | ActiveRecord: 41.0ms | Allocations: 109250)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:07:59 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1301)
+  Rendered layout layouts/application.html.erb (Duration: 99.9ms | Allocations: 12589)
+Completed 200 OK in 117ms (Views: 101.1ms | ActiveRecord: 1.3ms | Allocations: 13877)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:07:59 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1290)
+  Rendered layout layouts/application.html.erb (Duration: 111.1ms | Allocations: 7818)
+Completed 200 OK in 129ms (Views: 114.0ms | ActiveRecord: 1.2ms | Allocations: 9054)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-18 11:08:31 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.7ms | Allocations: 304)
+  Rendered posts/show.html.erb within layouts/application (Duration: 45.2ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 299.6ms | Allocations: 42733)
+Completed 200 OK in 538ms (Views: 316.9ms | ActiveRecord: 21.6ms | Allocations: 65302)
+
+
+Started GET "/teams/1/categories/6/posts/15" for ::1 at 2026-01-18 11:11:59 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.3ms | Allocations: 304)
+  Rendered posts/show.html.erb within layouts/application (Duration: 44.4ms | Allocations: 2543)
+  Rendered layout layouts/application.html.erb (Duration: 3027.2ms | Allocations: 82492)
+Completed 200 OK in 3284ms (Views: 3050.2ms | ActiveRecord: 20.8ms | Allocations: 104995)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:12:06 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 16.0ms | Allocations: 2552)
+  Rendered layout layouts/application.html.erb (Duration: 103.4ms | Allocations: 9074)
+Completed 200 OK in 135ms (Views: 115.7ms | ActiveRecord: 1.2ms | Allocations: 10573)
+
+
+Started GET "/teams/1/categories/6/posts/15/edit" for ::1 at 2026-01-18 11:12:06 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/edit.html.erb:6
+  Rendered posts/edit.html.erb within layouts/application (Duration: 18.0ms | Allocations: 1754)
+  Rendered layout layouts/application.html.erb (Duration: 124.4ms | Allocations: 8079)
+Completed 200 OK in 167ms (Views: 126.6ms | ActiveRecord: 1.3ms | Allocations: 10008)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:12:10 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 12.7ms | Allocations: 1293)
+  Rendered layout layouts/application.html.erb (Duration: 112.2ms | Allocations: 7809)
+Completed 200 OK in 134ms (Views: 114.4ms | ActiveRecord: 1.4ms | Allocations: 9045)
+
+
+Started GET "/teams/1/categories/6/posts/15/edit" for ::1 at 2026-01-18 11:12:15 +0900
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:12:15 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"15"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 15], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/edit.html.erb:6
+  Rendered posts/edit.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1452)
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (6.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1388)
+  Rendered layout layouts/application.html.erb (Duration: 203.0ms | Allocations: 13238)
+Completed 200 OK in 245ms (Views: 205.0ms | ActiveRecord: 0.9ms | Allocations: 15196)
+
+
+  Rendered layout layouts/application.html.erb (Duration: 125.1ms | Allocations: 10162)
+Completed 200 OK in 153ms (Views: 126.3ms | ActiveRecord: 11.4ms | Allocations: 11924)
+
+
+Started GET "/teams/1" for ::1 at 2026-01-18 11:17:28 +0900
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/teams_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering teams/show.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ?[0m  [["team_id", 1]]
+  ↳ app/views/teams/show.html.erb:9
+  Rendered teams/show.html.erb within layouts/application (Duration: 138.9ms | Allocations: 10827)
+  Rendered layout layouts/application.html.erb (Duration: 449.7ms | Allocations: 51042)
+Completed 200 OK in 535ms (Views: 467.7ms | ActiveRecord: 17.5ms | Allocations: 57007)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:17:32 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 63.8ms | Allocations: 9171)
+  Rendered layout layouts/application.html.erb (Duration: 165.4ms | Allocations: 15703)
+Completed 200 OK in 200ms (Views: 178.6ms | ActiveRecord: 2.2ms | Allocations: 17271)
+
+
+Started GET "/teams/1/categories/6/posts/12" for ::1 at 2026-01-18 11:17:33 +0900
+Started GET "/teams/1/categories/6/posts/13" for ::1 at 2026-01-18 11:17:34 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"12"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 17.5ms | Allocations: 634)
+  Rendered posts/show.html.erb within layouts/application (Duration: 79.1ms | Allocations: 3700)
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"13"}
+  [1m[36mTeam Load (7.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 13], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.8ms | Allocations: 291)
+  Rendered posts/show.html.erb within layouts/application (Duration: 12.4ms | Allocations: 1518)
+  Rendered layout layouts/application.html.erb (Duration: 264.4ms | Allocations: 17193)
+Completed 200 OK in 335ms (Views: 280.5ms | ActiveRecord: 1.5ms | Allocations: 19484)
+
+
+Started GET "/teams/1/categories/6/posts/12" for ::1 at 2026-01-18 11:17:34 +0900
+  Rendered layout layouts/application.html.erb (Duration: 191.3ms | Allocations: 11822)
+Completed 200 OK in 226ms (Views: 193.9ms | ActiveRecord: 13.2ms | Allocations: 14255)
+
+
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"1", "category_id"=>"6", "id"=>"12"}
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:55:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 6], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:24:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 12], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:8
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.2ms | Allocations: 291)
+  Rendered posts/show.html.erb within layouts/application (Duration: 11.1ms | Allocations: 1460)
+  Rendered layout layouts/application.html.erb (Duration: 126.7ms | Allocations: 7988)
+Completed 200 OK in 149ms (Views: 128.5ms | ActiveRecord: 1.1ms | Allocations: 9858)
+
+
+Started GET "/teams/1/categories/6" for ::1 at 2026-01-18 11:17:35 +0900
+Processing by CategoriesController#show as HTML
+  Parameters: {"team_id"=>"1", "id"=>"6"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:50:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 1], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "posts" WHERE "posts"."category_id" = ? LIMIT ?[0m  [["category_id", 6], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:13
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ?[0m  [["category_id", 6]]
+  ↳ app/views/categories/show.html.erb:14
+  Rendered categories/show.html.erb within layouts/application (Duration: 13.7ms | Allocations: 1327)
+  Rendered layout layouts/application.html.erb (Duration: 111.4ms | Allocations: 7845)
+Completed 200 OK in 129ms (Views: 112.5ms | ActiveRecord: 1.3ms | Allocations: 9081)
+
+

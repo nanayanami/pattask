@@ -1,13 +1,23 @@
-<h1><%= @post.title %></h1>
-<p>チーム: <%= @team.name %></p>
-<p>カテゴリー: <%= @category.name %></p>
+<div class="posts cover">
+  <h1 class="posts-title"><%= @post.title %></h1>
+  <p class="posts-meta">チーム: <%= @team.name %></p>
+  <p class="posts-meta">カテゴリー: <%= @category.name %></p>
 
 <div>
   <h2>内容</h2>
   <%= @post.content %>
 </div>
-<%= link_to "編集する",  edit_team_category_post_path(@team, @category, @post) %><br>
-<%= link_to '削除する',  team_category_post_path(@team, @category, @post),  data: { turbo_method: :delete, turbo_confirm:  "本当に消しますか？"} %><br>
-<%= link_to "投稿一覧に戻る", team_category_posts_path(@team, @category) %><br>
-<%= link_to "カテゴリーに戻る", team_category_path(@team, @category) %><br>
-<%= link_to "チーム一覧に戻る", teams_path %><br>
+
+  <div class="post-head">
+    <div class="d-flex gap-2 post-actions">
+      <%= link_to "編集する", edit_team_category_post_path(@team, @category, @post),
+                  class: "btn btn-success btn-sm btn-edit" %>
+      <%= link_to "削除する", team_category_post_path(@team, @category, @post),
+                  data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" },
+                  class: "btn btn-danger btn-sm btn-del" %>
+    </div>
+    <div class="post-back">
+      <%= link_to "投稿一覧に戻る", team_category_path(@team, @category),
+                  class: "btn btn-dark btn-sm btn-back" %>
+    </div>
+</div>
