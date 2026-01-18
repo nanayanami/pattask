@@ -20,6 +20,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = @team.categories.find(params[:id])
+    @posts = @category.posts
   end
 
   def edit

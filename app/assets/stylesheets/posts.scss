@@ -36,6 +36,13 @@ h1 {
   overflow: auto;
   }
 
+//rich-text-groupの画像が投稿詳細で表示されるようにするためのコード
+  .trix-content img,
+  .action-text-attachment img {
+    max-width: 100%;
+    height: auto;
+  }
+
 
 
   .posts {

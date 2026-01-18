@@ -1,0 +1,9 @@
+<% attachable = attachment.attachable %>
+<% if attachable.respond_to?(:image?) && attachable.image? %>
+  <%= image_tag url_for(attachable), alt: attachment.caption.presence || attachable.filename.to_s %>
+<% else %>
+  <%= link_to attachment.filename.to_s, url_for(attachable) %>
+<% end %>
+<% if attachment.caption.present? %>
+  <div class="attachment__caption"><%= attachment.caption %></div>
+<% end %>
