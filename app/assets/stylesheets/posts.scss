@@ -5,11 +5,6 @@ h1 {
     text-align: center;
   }
   
-  .cover {
-    min-height: 100vh;
-    width: 100%;
-  }
-  
   .form-label {
     font-size: 20px;
   }
@@ -39,95 +34,21 @@ h1 {
     height: auto;
   }
 
-
-
-  .posts {
-    padding: 16px 0;
-  }
-
-  .posts-title {
-    font-family: "Arial Black", "Helvetica", sans-serif;
-    font-size: 50x;
-    margin-bottom: 8px;
-  }
-
-  .posts-meta {
-    font-family: "Arial Black", "Helvetica", sans-serif;
-    font-size: 25px;
-    color: #555;
-    margin-bottom: 4px;
-    padding-right: 30px;
-    text-align: right;
-  }
-
-  .posts-new {
-    margin: 12px 0 20px;
-    padding-right: 16px;
-  }
-
-  .post-item {
-    padding: 12px 0;
-    border-bottom: 1px solid #e5e5e5;
-    padding-right: 30px;
-  }
-
-  .post-title a {
-    font-family: "Arial Black", "Helvetica", sans-serif;
-    color: #222;
-    text-decoration: none;
-  }
-
-  .post-title a:hover {
-    text-decoration: underline;
-  }
-
   .post-body {
     margin-top: 6px;
     color: #444;
   }
 
-  .btn.btn-edit {
-    background-color: #62bf7f;
-    border-color: #62bf7f;
-    color: #fff;
-  }
-
-  .btn.btn-edit:hover {
-    background-color: #51b372;
-    border-color: #51b372;
-    color: #fff;
-  }
-
-  .btn.btn-del {
-    background-color: #e47070;
-    border-color: #e47070;
-    color: #fff;
-  }
-
-  .btn.btn-del:hover {
-    background-color: #d86161;
-    border-color: #d86161;
-    color: #fff;
-  }
-
-  .btn.btn-team-del {
-    background-color: #5fa8d3;
-    border-color: #5fa8d3;
-    color: #fff;
-  }
-
-  .btn.btn-team-del:hover {
-    background-color: #5398bf;
-    border-color: #5398bf;
-    color: #fff;
+  .post-content-box {
+    background-color: #fff;
+    padding: 16px 20px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin: 12px 0 16px;
   }
 
   .post-back {
     margin-top: 8px;
-    padding-left: 8px;
-  }
-
-  .post-actions {
     padding-left: 8px;
   }
 

@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :set_team
+  before_action :set_category, only: %i[show edit update destroy]
 
   def new
     @category = @team.categories.build
@@ -19,16 +20,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = @team.categories.find(params[:id])
     @posts = @category.posts
   end
 
   def edit
-    @category = @team.categories.find(params[:id])
   end
 
   def update
-    @category = @team.categories.find(params[:id])
     if @category.update(category_params)
       redirect_to team_category_path(@team, @category), notice: 'カテゴリーを更新しました'
     else
@@ -37,7 +35,6 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = @team.categories.find(params[:id])
     if @category.destroy
       redirect_to team_categories_path(@team), notice: 'カテゴリーを削除しました'
     else
@@ -49,6 +46,13 @@ class CategoriesController < ApplicationController
 
   def set_team
     @team = Team.find(params[:team_id])
+  end
+
+  def set_category
+    @category = @team.categories.find_by(id: params[:id])
+    return if @category
+
+    redirect_to team_categories_path(@team), alert: 'カテゴリーが見つかりません'
   end
 
   def category_params

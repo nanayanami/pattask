@@ -1,5 +1,4 @@
-
-
+<%# 完了 %>
 
 <div class="posts cover">
   <h1 class="posts-title">チーム一覧</h1>
@@ -9,12 +8,16 @@
 
   <% @teams.each do |team| %>
     <div class="post-item">
-      <div class="d-flex justify-content-between align-items-center post-head">
-        <h3 class="mb-0 post-title"><%= team.name %></h3>
+      <div class="d-flex justify-content-between align-items-center post-head w-100">
+        <h3 class="mb-0 post-title"><%= link_to team.name, team_path(team) %></h3>
         <div class="d-flex gap-2 post-actions">
-         <%= link_to "カテゴリーへ", team_path(team),class: "btn btn-danger btn-sm btn-del" %>  
+        
+
+
          <%= link_to "チーム名編集", edit_team_path(team), class: "btn btn-success btn-sm btn-edit" %>
-         <%= link_to "チーム削除", team_path(team), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-team-del" %>
+         <%= link_to "チーム削除", team_path(team), 
+                      data: { turbo_method: :delete, turbo_confirm: "削除してよろしいですか？" }, 
+                      class: "btn btn-danger btn-sm btn-del" %>
         </div>
       </div>
     </div>
