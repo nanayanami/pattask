@@ -11,3 +11,26 @@
     <h3><%= link_to category.name, team_category_path(@team, category) %></h3>
   </div>
 <% end %>
+
+<div class="posts cover">
+  <h1 class="posts-title">カテゴリー一覧</h1>
+  <p class="posts-meta">チーム: <%= @team.name %></p>
+
+  <%= link_to "新規カテゴリーを作成", new_team_category_path(@team) , class: "btn btn-primary btn-lg posts-new" %>
+
+  <% @team.categories.each do |category| %>
+    <div class="post-item">
+      <div class="d-flex justify-content-between align-items-center post-head w-100">
+        <h3 class="mb-0 post-title"><%= link_to category.name, team_category_path(@team, category) %></h3>
+        <div class="d-flex gap-2 post-actions">
+
+
+        <%= link_to "カテゴリー編集", edit_team_category_path(@team, category), class: "btn btn-success btn-sm btn-edit" %>
+        <%= link_to "カテゴリー削除", team_category_path(@team, category),
+                      data: { turbo_method: :delete, turbo_confirm: "削除してよろしいですか？" },
+                      class: "btn btn-danger btn-sm btn-del" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
