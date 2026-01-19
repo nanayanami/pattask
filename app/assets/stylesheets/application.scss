@@ -18,11 +18,11 @@
 @import "bootstrap";
 
 html,
-body{
+body {
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: 0 var(--page-padding);
+    padding: 0;
 }
 
 body {
@@ -39,6 +39,49 @@ body {
 
 .profiler-results {
     display: none;
+}
+
+//ハンバーガーメニューのデザイン
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: aqua;
+    text-decoration: underline;
+}
+
+.app-header {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    background-color: #6c757d;
+
+    .navbar-brand {
+        font-size: 25px;
+    }
+
+    .nav-link {
+        text-decoration: none;
+    }
+}
+
+.page-content {
+    padding: 0 var(--page-padding);
+}
+
+.profile-img {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.app-header .header-logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 0;
+    display: block;
 }
 
 
