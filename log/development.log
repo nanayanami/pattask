@@ -40977,3 +40977,555 @@ Processing by PostsController#show as HTML
 Completed 200 OK in 164ms (Views: 141.6ms | ActiveRecord: 2.2ms | Allocations: 13470)
 
 
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:06:34 +0900
+Started GET "/" for ::1 at 2026-01-20 20:06:34 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#top as HTML
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.1ms | Allocations: 745)
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 85.1ms | Allocations: 3536)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 50.3ms | Allocations: 10938)
+  Rendered posts/show.html.erb within layouts/application (Duration: 346.6ms | Allocations: 31279)
+  Rendered homes/top.html.erb within layouts/application (Duration: 3429.9ms | Allocations: 165962)
+  Rendered layout layouts/application.html.erb (Duration: 3431.0ms | Allocations: 166076)
+Completed 500 Internal Server Error in 3894ms (ActiveRecord: 0.0ms | Allocations: 183357)
+
+
+  
+ActionView::Template::Error (Permission denied @ rb_file_s_rename - (C:/pattask/tmp/cache/assets/sprockets/v4.0.0/FT/FTEOSeZXavTFJmF_XCKHd4MInYxypzfaavoZKIBg4so.cache.34260.11988.575823, C:/pattask/tmp/cache/assets/sprockets/v4.0.0/FT/FTEOSeZXavTFJmF_XCKHd4MInYxypzfaavoZKIBg4so.cache)):
+  
+sprockets (4.2.2) lib/sprockets/path_utils.rb:362:in `rename'
+sprockets (4.2.2) lib/sprockets/path_utils.rb:362:in `atomic_write'
+sprockets (4.2.2) lib/sprockets/cache/file_store.rb:112:in `set'
+sprockets (4.2.2) lib/sprockets/cache.rb:227:in `set'
+sprockets (4.2.2) lib/sprockets/cache.rb:143:in `set'
+sprockets (4.2.2) lib/sprockets/loader.rb:265:in `store_asset'
+sprockets (4.2.2) lib/sprockets/loader.rb:228:in `load_from_unloaded'
+sprockets (4.2.2) lib/sprockets/loader.rb:59:in `block in load'
+sprockets (4.2.2) lib/sprockets/loader.rb:339:in `fetch_asset_from_dependency_cache'
+sprockets (4.2.2) lib/sprockets/loader.rb:43:in `load'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `block in load'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:207:in `block in fetch_or_store'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:187:in `fetch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/map.rb:206:in `fetch_or_store'
+sprockets (4.2.2) lib/sprockets/cached_environment.rb:44:in `load'
+sprockets (4.2.2) lib/sprockets/base.rb:81:in `find_asset'
+sprockets (4.2.2) lib/sprockets/base.rb:88:in `find_all_linked_assets'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `each'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `to_a'
+sprockets (4.2.2) lib/sprockets/manifest.rb:125:in `block (2 levels) in find'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:24:in `block in execute'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `block in synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb:48:in `synchronize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb:22:in `execute'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/promise.rb:564:in `block in realize'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:382:in `run_task'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:372:in `block (3 levels) in create_worker'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:361:in `loop'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:361:in `block (2 levels) in create_worker'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:358:in `catch'
+concurrent-ruby (1.3.6) lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb:358:in `block in create_worker'
+  Rendered layout layouts/application.html.erb (Duration: 3238.5ms | Allocations: 219595)
+Completed 200 OK in 4209ms (Views: 3255.3ms | ActiveRecord: 22.6ms | Allocations: 293794)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:09:22 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (2.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.5ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.5ms | Allocations: 289)
+  [1m[36mComment Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 12.4ms | Allocations: 465)
+  [1m[36mComment Load (0.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 16.2ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 69.4ms | Allocations: 4360)
+  Rendered layout layouts/application.html.erb (Duration: 2914.6ms | Allocations: 47148)
+Completed 200 OK in 2976ms (Views: 2916.9ms | ActiveRecord: 5.3ms | Allocations: 49299)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:13:48 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.8ms | Allocations: 514)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 8.1ms | Allocations: 857)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 38.8ms | Allocations: 7878)
+  Rendered posts/show.html.erb within layouts/application (Duration: 137.5ms | Allocations: 14285)
+  Rendered layout layouts/application.html.erb (Duration: 4139.2ms | Allocations: 93133)
+Completed 200 OK in 4477ms (Views: 4162.2ms | ActiveRecord: 30.3ms | Allocations: 122061)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:15:30 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (1.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.7ms | Allocations: 289)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 3.4ms | Allocations: 461)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 11.0ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 36.7ms | Allocations: 4354)
+  Rendered layout layouts/application.html.erb (Duration: 3126.8ms | Allocations: 50886)
+Completed 200 OK in 3153ms (Views: 3127.5ms | ActiveRecord: 2.8ms | Allocations: 53033)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:24:19 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (29.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 7.8ms | Allocations: 289)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 17.1ms | Allocations: 467)
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 25.0ms | Allocations: 1366)
+  Rendered posts/show.html.erb within layouts/application (Duration: 88.1ms | Allocations: 4484)
+  Rendered layout layouts/application.html.erb (Duration: 3343.0ms | Allocations: 52602)
+Completed 200 OK in 3472ms (Views: 3350.1ms | ActiveRecord: 48.8ms | Allocations: 55030)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:25:26 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.5ms | Allocations: 289)
+  [1m[36mComment Count (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 5.5ms | Allocations: 473)
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 16.8ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 62.1ms | Allocations: 4364)
+  Rendered layout layouts/application.html.erb (Duration: 3861.5ms | Allocations: 52483)
+Completed 200 OK in 4036ms (Views: 3867.3ms | ActiveRecord: 4.0ms | Allocations: 54621)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:27:14 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (5.1ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (2.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 23.7ms | Allocations: 289)
+  [1m[36mComment Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 26.9ms | Allocations: 488)
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 186.3ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 355.1ms | Allocations: 4378)
+  Rendered layout layouts/application.html.erb (Duration: 6508.0ms | Allocations: 52475)
+Completed 200 OK in 6730ms (Views: 6527.2ms | ActiveRecord: 13.2ms | Allocations: 54599)
+
+
+Started POST "/teams/15/categories/20/posts/36/comments" for ::1 at 2026-01-20 20:27:32 +0900
+Processing by CommentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "comment"=>{"comment"=>""}, "commit"=>"コメントする", "team_id"=>"15", "category_id"=>"20", "post_id"=>"36"}
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:3:in `create'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:4:in `create'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mUser Load (17.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mComment Create (5.1ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "user_id", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["comment", ""], ["user_id", 1], ["post_id", 36], ["created_at", "2026-01-20 11:27:33.580549"], ["updated_at", "2026-01-20 11:27:33.580549"]]
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+  [1m[36mTRANSACTION (11.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:8:in `create'
+Redirected to http://localhost:3000/teams/15/categories/20/posts/36
+Completed 302 Found in 378ms (ActiveRecord: 37.5ms | Allocations: 6541)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:27:33 +0900
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.2ms | Allocations: 289)
+  [1m[36mComment Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 4.2ms | Allocations: 464)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 12.3ms | Allocations: 1173)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  Rendered comments/_comment.html.erb (Duration: 7.9ms | Allocations: 653)
+  Rendered posts/show.html.erb within layouts/application (Duration: 56.5ms | Allocations: 5054)
+  Rendered layout layouts/application.html.erb (Duration: 211.5ms | Allocations: 12034)
+Completed 200 OK in 254ms (Views: 215.3ms | ActiveRecord: 2.6ms | Allocations: 14196)
+
+
+Started DELETE "/teams/15/categories/20/posts/36/comments/6?_method=delete" for ::1 at 2026-01-20 20:27:40 +0900
+Processing by CommentsController#destroy as TURBO_STREAM
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "post_id"=>"36", "id"=>"6"}
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:18:in `destroy'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/comments_controller.rb:19:in `destroy'
+  [1m[36mComment Destroy (6.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 6]]
+  ↳ app/controllers/comments_controller.rb:19:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/comments_controller.rb:19:in `destroy'
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/comments_controller.rb:20:in `destroy'
+Redirected to http://localhost:3000/teams/15/categories/20/posts/36
+Completed 302 Found in 60ms (ActiveRecord: 9.3ms | Allocations: 3705)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:27:41 +0900
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.9ms | Allocations: 289)
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 6.5ms | Allocations: 494)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 27.0ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 82.8ms | Allocations: 4388)
+  Rendered layout layouts/application.html.erb (Duration: 282.2ms | Allocations: 11367)
+Completed 200 OK in 322ms (Views: 283.6ms | ActiveRecord: 2.9ms | Allocations: 13494)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:29:14 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (9.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 16.4ms | Allocations: 381)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 85.9ms | Allocations: 479)
+  [1m[36mComment Load (2.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 237.7ms | Allocations: 1287)
+  Rendered posts/show.html.erb within layouts/application (Duration: 529.3ms | Allocations: 4473)
+  Rendered layout layouts/application.html.erb (Duration: 6338.9ms | Allocations: 52570)
+Completed 200 OK in 6592ms (Views: 6359.4ms | ActiveRecord: 13.9ms | Allocations: 54694)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:39:32 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (51.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (2.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (1.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 31.9ms | Allocations: 289)
+  [1m[36mComment Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:33
+  Rendered comments/_form.html.erb (Duration: 103.7ms | Allocations: 488)
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:38
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 80.3ms | Allocations: 1366)
+  Rendered posts/show.html.erb within layouts/application (Duration: 355.6ms | Allocations: 4506)
+  Rendered layout layouts/application.html.erb (Duration: 4838.7ms | Allocations: 52635)
+Completed 200 OK in 5082ms (Views: 4843.6ms | ActiveRecord: 87.7ms | Allocations: 55063)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:42:54 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.5ms | Allocations: 514)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:32
+  Rendered comments/_form.html.erb (Duration: 12.4ms | Allocations: 851)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:37
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 39.7ms | Allocations: 7879)
+  Rendered posts/show.html.erb within layouts/application (Duration: 165.1ms | Allocations: 14279)
+  Rendered layout layouts/application.html.erb (Duration: 3230.3ms | Allocations: 96321)
+Completed 200 OK in 3653ms (Views: 3250.1ms | ActiveRecord: 34.0ms | Allocations: 125262)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:46:28 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.2ms | Allocations: 289)
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:32
+  Rendered comments/_form.html.erb (Duration: 3.3ms | Allocations: 488)
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:37
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 14.4ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 38.1ms | Allocations: 4380)
+  Rendered layout layouts/application.html.erb (Duration: 2667.7ms | Allocations: 52490)
+Completed 200 OK in 2698ms (Views: 2669.6ms | ActiveRecord: 2.9ms | Allocations: 54623)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:47:33 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (11.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 14.8ms | Allocations: 289)
+  [1m[36mComment Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:32
+  Rendered comments/_form.html.erb (Duration: 4.6ms | Allocations: 476)
+  [1m[36mComment Load (0.9ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:37
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 133.4ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 250.8ms | Allocations: 4366)
+  Rendered layout layouts/application.html.erb (Duration: 3917.5ms | Allocations: 52470)
+Completed 200 OK in 4175ms (Views: 3917.4ms | ActiveRecord: 17.0ms | Allocations: 54595)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:48:00 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.3ms | Allocations: 289)
+  [1m[36mComment Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:32
+  Rendered comments/_form.html.erb (Duration: 3.0ms | Allocations: 491)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:37
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 12.3ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 52.4ms | Allocations: 4382)
+  Rendered layout layouts/application.html.erb (Duration: 2649.1ms | Allocations: 52544)
+Completed 200 OK in 2674ms (Views: 2650.4ms | ActiveRecord: 2.6ms | Allocations: 54668)
+
+
+Started GET "/teams/15/categories/20/posts/36" for ::1 at 2026-01-20 20:48:19 +0900
+Processing by PostsController#show as HTML
+  Parameters: {"team_id"=>"15", "category_id"=>"20", "id"=>"36"}
+  [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:59:in `set_team'
+  [1m[36mCategory Load (0.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."team_id" = ? AND "categories"."id" = ? LIMIT ?[0m  [["team_id", 15], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:63:in `set_category'
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."category_id" = ? AND "posts"."id" = ? LIMIT ?[0m  [["category_id", 20], ["id", 36], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:25:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = ? AND "action_text_rich_texts"."record_type" = ? AND "action_text_rich_texts"."name" = ? LIMIT ?[0m  [["record_id", 36], ["record_type", "Post"], ["name", "content"], ["LIMIT", 1]]
+  ↳ app/views/posts/show.html.erb:12
+  Rendered C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/actiontext-7.1.6/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 9.0ms | Allocations: 289)
+  [1m[36mComment Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 36]]
+  ↳ app/views/posts/show.html.erb:32
+  Rendered comments/_form.html.erb (Duration: 3.1ms | Allocations: 479)
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ? ORDER BY "comments"."id" DESC LIMIT ? OFFSET ?[0m  [["post_id", 36], ["LIMIT", 7], ["OFFSET", 0]]
+  ↳ app/views/posts/show.html.erb:37
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:4
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/comments/_comment.html.erb:12
+  Rendered comments/_comment.html.erb (Duration: 10.9ms | Allocations: 1286)
+  Rendered posts/show.html.erb within layouts/application (Duration: 67.1ms | Allocations: 4369)
+  Rendered layout layouts/application.html.erb (Duration: 2699.3ms | Allocations: 52478)
+Completed 200 OK in 2724ms (Views: 2699.5ms | ActiveRecord: 3.7ms | Allocations: 54603)
+
+

@@ -140,6 +140,7 @@
     "head"
     "main"
     "comments";
+  --pd-comment-offset: 0px;
   gap: 24px;
   padding: 0 16px;
 }
@@ -149,8 +150,7 @@
   grid-area: head;
 }
 
-.pd-h-main,
-.pd-h-comments {
+.pd-h-main {
   text-align: center;
   margin-bottom: 0;
 }
@@ -170,7 +170,7 @@
 
 .pd-comments {
   grid-area: comments;
-  padding: 8px 0;
+  padding: calc(8px + var(--pd-comment-offset)) 0 0;
 }
 
 .c-count {
@@ -243,16 +243,28 @@
   margin-top: 8px;
 }
 
-.btn-c-del {
-  background-color: #fbecec;
-  border-color: #f7dede;
-  color: #a15a5a;
+.btn.btn-c-del {
+  background-color: #e47070 !important;
+  border-color: #e47070 !important;
+  color: #fff !important;
 }
 
-.btn-c-del:hover {
-  background-color: #f8e2e2;
-  border-color: #f2d0d0;
-  color: #944f4f;
+.btn.btn-c-del:hover {
+  background-color: #d86161 !important;
+  border-color: #d86161 !important;
+  color: #fff !important;
+}
+
+.btn.btn-c-submit {
+  background-color: #62bf7f !important;
+  border-color: #62bf7f !important;
+  color: #fff !important;
+}
+
+.btn.btn-c-submit:hover {
+  background-color: #51b372 !important;
+  border-color: #51b372 !important;
+  color: #fff !important;
 }
 
 .c-empty {
@@ -286,6 +298,7 @@
       "main comments";
     max-width: 1600px;
     margin: 0 auto;
+    --pd-comment-offset: 120px;
   }
 
   .pd-headings {
@@ -296,7 +309,7 @@
   }
 
   .pd-h {
-    display: none;
+    display: block;
   }
 }
 
