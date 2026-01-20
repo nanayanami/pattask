@@ -1,0 +1,17 @@
+
+<div class="users cover">
+  <h1 class="users-title">ユーザー一覧</h1>
+
+  <div class="users-list">
+    <% @users.each do |user| %>
+      <div class="user-bar">
+        <%= link_to user.name, user_path(user), class: "user-name" %>
+        <span class="user-post-count"><%= "#{user.posts.count} 投稿" %></span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="pagination-wrapper">
+    <%= paginate @users %>
+  </div>
+</div>

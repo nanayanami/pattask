@@ -5,6 +5,7 @@
   <p class="posts-meta">チーム: <%= @team.name %></p>
   <p class="posts-meta">カテゴリー: <%= @category.name %></p>
 
+
   <%= link_to "新規投稿", new_team_category_post_path(@team, @category), class: "btn btn-primary btn-lg posts-new me-2" %>
   <%= link_to "カテゴリー一覧に戻る", team_categories_path(@team), class: "btn btn-primary btn-lg posts-new" %><br>
 
@@ -19,6 +20,7 @@
                       class: "btn btn-danger btn-sm btn-del" %>
         </div>
       </div>
+      <p class="caption"><%= post.user.name %></p>
       <p class="caption"><%= "#{post.comments.count} コメント" %></p>
       <p class="post-body"><%= truncate(post.post, length: 100) %></p>
     </div>

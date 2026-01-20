@@ -18,6 +18,8 @@
                       class: "btn btn-danger btn-sm btn-del" %>
         </div>
       </div>
+
+      <p class="caption"><%= post.user.name %></p>
       <p class="caption"><%= "#{post.comments.count} コメント" %></p>
       <p class="post-body"><%= truncate(post.content.to_plain_text, length: 100) %></p>
     </div>
