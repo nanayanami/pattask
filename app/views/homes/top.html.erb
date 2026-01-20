@@ -4,7 +4,11 @@
  <div class="text-center">
    <p class="sub-title">パッとタスクを解消する</p>
   <img class="title-image mb-3" src="<%= asset_path('Pattask-logo-transparent.png') %>" alt="Pattask"><br>
+  <%= link_to new_user_registration_path do %>
    <h2 class="btn btn-primary mr-2">新規登録</h2>
+  <% end %>
+  <%= link_to new_user_session_path do %>
    <h2 class="btn btn-primary ml-2">ログイン</h2>
+  <% end %>
  </div>
 </div>

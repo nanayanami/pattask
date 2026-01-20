@@ -19,7 +19,12 @@
                       class: "btn btn-danger btn-sm btn-del" %>
         </div>
       </div>
+      <p class="caption"><%= "#{post.comments.count} コメント" %></p>
       <p class="post-body"><%= truncate(post.post, length: 100) %></p>
     </div>
   <% end %>
+
+  <div class="pagination-wrapper">
+    <%= paginate @posts %>
+  </div>
 </div>

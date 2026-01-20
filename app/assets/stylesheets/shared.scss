@@ -7,6 +7,7 @@
   background-color: rgba(255, 255, 255, 0.4);
   background-blend-mode: lighten;
   background-size: 100% 100%;
+  overflow-x: hidden;
 }
 
 .posts {
@@ -75,4 +76,108 @@
   background-color: #d86161;
   border-color: #d86161;
   color: #fff;
+}
+
+//ページネーションのデザイン
+nav[aria-label="pager"] {
+  text-align: center;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination-wrapper nav,
+.pagination-wrapper .pagination {
+  display: inline-flex;
+  align-items: center;
+}
+
+.page a,
+.next a,
+.last a,
+.first a,
+.prev a {
+  color: black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.page a:hover,
+.next a:hover,
+.last a:hover,
+.first a:hover,
+.prev a:hover {
+  color: black;
+}
+
+.current {
+  font-weight: bold;
+}
+
+
+
+
+
+//投稿フォームのデザイン
+.post-form-container,
+.post-form-container * {
+  box-sizing: border-box;
+}
+
+.post-form-container {
+  width: 100%;
+  padding: 0 16px;
+  overflow-x: hidden;
+}
+
+.post-form-row {
+  width: 100%;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.post-form-panel {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post-form-panel h1 {
+  text-align: center;
+}
+
+.post-form-panel form,
+.post-form-panel .form-group,
+.post-form-panel .trix-content,
+.post-form-panel .trix-editor {
+  width: 100%;
+}
+
+.post-form-panel input,
+.post-form-panel .trix-toolbar,
+.post-form-panel .trix-editor {
+  max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .post-form-panel {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .post-form-panel {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .post-form-panel {
+    max-width: 900px;
+  }
 }

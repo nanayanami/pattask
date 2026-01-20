@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def create
     @post = @category.posts.build(post_params)
     @post.team_id = @team.id
+    @post.user = current_user
     if @post.save
       redirect_to team_category_posts_path(@team, @category), notice: '投稿を作成しました'
     else
@@ -17,11 +18,13 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = @category.posts
+    @posts = @category.posts.page(params[:page]).reverse_order
   end
 
   def show
     @post = @category.posts.find(params[:id])
+    @comment = Comment.new
+    @comments = @post.comments.page(params[:page]).per(7).reverse_order
   end
 
   def edit
@@ -30,6 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = @category.posts.find(params[:id])
+    @post.user ||= current_user
     if @post.update(post_params)
       redirect_to team_category_post_path(@team, @category, @post), notice: '投稿を更新しました'
     else
@@ -60,6 +64,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image_id, :status, :user_id)
+    params.require(:post).permit(:title, :content, :image_id, :status)
   end
 end

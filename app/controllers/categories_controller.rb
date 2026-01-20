@@ -16,11 +16,11 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    @categories = @team.categories
+    @categories = @team.categories.page(params[:page]).reverse_order
   end
 
   def show
-    @posts = @category.posts
+    @posts = @category.posts.page(params[:page]).reverse_order
   end
 
   def edit

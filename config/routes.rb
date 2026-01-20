@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :teams do
     resources :categories do
-      resources :posts
+      resources :posts do
+        resources :comments, only: [:create, :destroy]
+      end
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
