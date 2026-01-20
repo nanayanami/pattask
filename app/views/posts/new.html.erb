@@ -1,14 +1,14 @@
 <%# 完了 新規投稿で投稿一覧に行く%>
 
 <div class="cover">
-  <div class="container post-form-container d-flex flex-column">
-    <div class="row mt-5 post-form-row">
-      <div class="post-form-panel">
-        <h1>新規投稿</h1>
+  <div class="container p-form d-flex flex-column">
+    <div class="row mt-5 p-row">
+      <div class="p-panel">
+        <h1 class="p-h1">新規投稿</h1>
       </div>
     </div>
-    <div class="row mt-4 post-form-row">
-      <div class="post-form-panel">
+    <div class="row mt-4 p-row">
+      <div class="p-panel">
         <%= form_with model: [@team, @category, @post], local: true do |f| %>
           <div class="form-group mb-3">
             <label class="form-label">タイトル</label>

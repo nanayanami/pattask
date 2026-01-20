@@ -1,0 +1,20 @@
+<div class="c-item">
+  <div class="c-meta">
+    <span class="c-author">
+      <%= comment.user&.name.presence ||
+          comment.user&.user_name.presence ||
+          comment.user&.email %>
+    </span>
+    <span class="c-time"><%= comment.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+  </div>
+  <div class="c-body"><%= simple_format(h(comment.comment)) %></div>
+
+  <% if comment.user == current_user %>
+    <div class="c-actions">
+      <%= link_to "削除",
+                  team_category_post_comment_path(team, category, post, comment),
+                  data: { turbo_method: :delete, turbo_confirm: "コメントを削除しますか？" },
+                  class: "btn btn-danger btn-sm btn-c-del" %>
+    </div>
+  <% end %>
+</div>

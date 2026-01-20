@@ -1,31 +1,36 @@
-h1 {
-    font-family: "Arial Black", "Helvetica", sans-serif;
-    font-size: 25px;
-    margin-bottom: 8px;
-    text-align: center;
-  }
+// h1は全体に効かせず、投稿ページだけに限定する
+.p-h1 {
+  font-family: "Arial Black", "Helvetica", sans-serif;
+  font-size: 25px;
+  margin-bottom: 8px;
+  text-align: center;
+}
   
-  .form-label {
-    font-size: 20px;
-  }
+// ラベルの文字サイズ（投稿フォーム用）
+.p-form .form-label {
+  font-size: 20px;
+}
   
-  .form-group {
-    width: 600px;
-  }
+// 入力欄は親の幅に合わせる
+.p-form .form-group {
+  width: 100%;
+}
 
-  .rich-text-group {
-    width: 700px;
-  }
+// リッチテキストも親の幅に合わせる
+.p-form .rich-text-group {
+  width: 100%;
+}
 
-  .rich-text-group trix-editor {
-    width: 100%;
+// trixの見た目
+.p-form .rich-text-group trix-editor {
+  width: 100%;
   min-height: 220px;
   padding: 8px 12px;
   border: 1px solid #ced4da;
   border-radius: 4px;
   background-color: #fff;
   overflow: auto;
-  }
+}
 
 //rich-text-groupの画像が投稿詳細で表示されるようにするためのコード
   .trix-content img,
@@ -63,3 +68,279 @@ h1 {
     border-color: #545454;
     color: #fff;
   }
+
+  
+//投稿・編集フォームのデザイン（クラス名を短く）
+.p-form,
+.p-form * {
+  box-sizing: border-box;
+}
+
+// 画面端に余白を入れる
+.p-form {
+  width: 100%;
+  padding: 0 16px;
+  overflow-x: hidden;
+}
+
+// Bootstrapのrowの左右マイナスを打ち消す
+.p-row {
+  width: 100%;
+  justify-content: center;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// 中央の白いエリアの幅
+.p-panel {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// フォーム内の幅を揃える
+.p-panel form,
+.p-panel .form-group,
+.p-panel .trix-content,
+.p-panel .trix-editor {
+  width: 100%;
+}
+
+// はみ出し防止
+.p-panel input,
+.p-panel .trix-toolbar,
+.p-panel .trix-editor {
+  max-width: 100%;
+}
+
+@media (max-width: 767.98px) {
+  .p-panel {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  .p-panel {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .p-panel {
+    max-width: 900px;
+  }
+}
+
+// 投稿詳細とコメントのレイアウト
+.pd-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "head"
+    "main"
+    "comments";
+  gap: 24px;
+  padding: 0 16px;
+}
+
+.pd-headings {
+  display: none;
+  grid-area: head;
+}
+
+.pd-h-main,
+.pd-h-comments {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.pd-h {
+  margin-top: 8px;
+}
+
+.pd-main,
+.pd-comments {
+  width: 100%;
+}
+
+.pd-main {
+  grid-area: main;
+}
+
+.pd-comments {
+  grid-area: comments;
+  padding: 8px 0;
+}
+
+.c-count {
+  margin: 4px 0 12px;
+  padding: 0 20px;
+  color: #666;
+  font-size: 14px;
+}
+
+.c-form {
+  padding: 0 20px;
+}
+
+.c-form .form-group {
+  margin-bottom: 10px;
+}
+
+.c-input {
+  resize: vertical;
+  min-height: 120px;
+  background-color: #fff;
+}
+
+.c-submit {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.c-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 20px;
+}
+
+.c-item {
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 8px 12px;
+  border: 1px solid #ececec;
+  width: 100%;
+  max-width: none;
+  margin-right: auto;
+}
+
+.c-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.c-author {
+  font-weight: bold;
+  color: #333;
+}
+
+.c-body {
+  color: #333;
+  line-height: 1.6;
+}
+
+.c-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+
+.btn-c-del {
+  background-color: #fbecec;
+  border-color: #f7dede;
+  color: #a15a5a;
+}
+
+.btn-c-del:hover {
+  background-color: #f8e2e2;
+  border-color: #f2d0d0;
+  color: #944f4f;
+}
+
+.c-empty {
+  text-align: center;
+  color: #777;
+  padding: 16px 0;
+}
+
+.c-page {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+// PC画面いっぱい（中型）: 1カラムで広め
+@media (min-width: 992px) and (max-width: 1399.98px) {
+  .pd-layout {
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+// 画面半分分割（大型）: 2カラム
+@media (min-width: 1400px) {
+  .pd-layout {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    grid-template-areas:
+      "head head"
+      "main comments";
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+
+  .pd-headings {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    gap: 24px;
+    padding: 0 16px;
+  }
+
+  .pd-h {
+    display: none;
+  }
+}
+
+// スマホ対応
+@media (max-width: 767.98px) {
+  .pd-layout {
+    gap: 16px;
+    padding: 0 12px;
+  }
+
+  .posts-title {
+    font-size: 32px;
+  }
+
+  .posts-meta {
+    font-size: 18px;
+    text-align: left;
+    padding-right: 0;
+  }
+
+  .post-head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .post-actions {
+    flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  .c-submit {
+    justify-content: stretch;
+  }
+
+  .c-submit .btn {
+    width: 100%;
+  }
+
+  .c-list,
+  .c-form,
+  .c-count,
+  .c-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}

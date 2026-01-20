@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
     def create
-        @post = Post.find(params[:post_id])
+        @team = Team.find(params[:team_id])
+        @category = @team.categories.find(params[:category_id])
+        @post = @category.posts.find(params[:post_id])
         @comment = @post.comments.build(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
-            redirect_to team_category_post_path(params[:team_id], params[:category_id], @post),
+            redirect_to team_category_post_path(@team, @category, @post),
                         notice: 'コメントを作成'
         else
-            render :new, status: :unprocessable_entity
+            @comments = @post.comments.page(params[:page]).per(7).reverse_order
+            render "posts/show", status: :unprocessable_entity
         end
     end
 
