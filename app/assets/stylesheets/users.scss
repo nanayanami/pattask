@@ -4,6 +4,54 @@
   padding: 16px 0;
 }
 
+.users .container {
+  max-width: 720px;
+}
+
+@media (min-width: 1200px) {
+  .users .container {
+    max-width: 1100px;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .users .posts-title {
+    font-size: 2.5rem;
+  }
+
+  .users .form-label {
+    font-size: 1.05rem;
+  }
+
+  .users .form-control {
+    font-size: 1.1rem;
+    padding: 0.75rem 1rem;
+    width: 100%;
+    max-width: none;
+  }
+
+  .users .btn {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .users .profile-img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .users #inputName,
+  .users textarea.form-control {
+    width: 100%;
+    max-width: none;
+  }
+
+  .users .row {
+    width: 100%;
+  }
+}
+
 .users-title {
   text-align: center;
   font-family: "Arial Black", "Helvetica", sans-serif;
@@ -42,4 +90,8 @@
   margin-top: 16px;
   display: flex;
   justify-content: center;
+}
+
+.profile {
+  padding: 15px;
 }
