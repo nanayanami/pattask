@@ -20,7 +20,7 @@
                       class: "btn btn-danger btn-sm btn-del" %>
         </div>
       </div>
-      <p class="caption"><%= post.user.name %></p>
+      <p class="caption"><%= post.user&.name || "退会済みユーザー" %></p>
       <p class="caption"><%= "#{post.comments.count} コメント" %></p>
       <p class="post-body"><%= truncate(post.post, length: 100) %></p>
     </div>

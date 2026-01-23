@@ -1,24 +1,5 @@
 
 <div class="users cover">
   <h1 class="users-title">ユーザー一覧</h1>
-
-  <div class="users-list">
-    <% @users.each do |user| %>
-      <div class="user-bar">
-        <div class="d-flex">
-          <% if user.profile_image.attached? %>
-            <%= image_tag user.profile_image, size: '50x50', class: "mt-3 profile-img" %>
-          <% else %>
-            <%= image_tag "no_image.svg", size: '50x50', class: "mt-3 profile-img" %>
-          <% end %>
-          <%= link_to user.name, user_path(user), class: "user-name" %>
-        </div>
-        <span class="user-post-count"><%= "#{user.posts.count} 投稿" %></span>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="pagination-wrapper">
-    <%= paginate @users %>
-  </div>
+  <%= render "index", users: @users %>
 </div>

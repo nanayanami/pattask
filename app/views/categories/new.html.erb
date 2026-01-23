@@ -6,6 +6,16 @@
       <div class="col-12 col-md-8">
         <h1>カテゴリーを作成</h1>
         <%= form_with model: [@team, @category], local: true do |f| %>
+
+          <% if @category.errors.any? %>
+            <div class="card text-center text-white bg-danger mt-3">
+              <%= @category.errors.count %>件のエラーが発生しました
+              <% @category.errors.full_messages.each do |message| %>
+                <%= message %>
+              <% end %>
+            </div>
+          <% end %>
+          
           <h4>カテゴリー名</h4>
           <div class="d-flex align-items-center gap-2 w-100 mb-3">
             <%= f.text_field :name, class: "form-control flex-grow-1" %>

@@ -6,6 +6,17 @@
       <div class="p-panel">
         <h1 class="p-h1">新規投稿</h1>
       </div>
+
+
+      <% if @post.errors.any? %>
+        <div class="card text-center text-white bg-danger mt-3">
+          <%= @post.errors.count %>件のエラーが発生しました
+          <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
     <div class="row mt-4 p-row">
       <div class="p-panel">
