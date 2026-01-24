@@ -5,6 +5,15 @@
   <p class="posts-meta">チーム: <%= @team.name %></p>
   <p class="posts-meta">カテゴリー: <%= @category.name %></p>
 
+  <div class="posts-search">
+    <%= form_with method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit '検索する',name:nil %>
+    <% end %>
+  </div>
+  
+  
+
   <%= link_to "新規投稿", new_team_category_post_path(@team, @category), class: "btn btn-primary btn-lg posts-new" %>
 
   <% @posts.each do |post| %>

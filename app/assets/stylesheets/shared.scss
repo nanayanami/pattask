@@ -1,6 +1,6 @@
 .cover {
   min-height: 100vh;
-  height: 100%;
+  height: 110%;
   width: 100%;
   display: table;
   background-image: url(/assets/top.jpg);
@@ -12,6 +12,40 @@
 
 .posts {
   padding: 16px 0;
+}
+
+.posts-search {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 0;
+  padding-right: 30px;
+}
+
+.posts-search form {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 767.98px) {
+  .posts-search {
+    justify-content: flex-end;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .posts-search form {
+    max-width: 100%;
+  }
+
+  .posts-search input[type="text"] {
+    flex: 1 1 160px;
+    min-width: 0;
+  }
+
+  .posts-search input[type="submit"] {
+    white-space: nowrap;
+  }
 }
 
 .posts-title {
