@@ -17,10 +17,17 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = @team.categories.page(params[:page]).reverse_order
+    @categories = @categories.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def show
     @posts = @category.posts.page(params[:page]).reverse_order
+    if params[:search].present?
+      query = "%#{params[:search]}%"
+      @posts = @posts
+               .left_joins(:rich_text_content)
+               .where('posts.title LIKE :q OR action_text_rich_texts.body LIKE :q', q: query)
+    end
   end
 
   def edit

@@ -5,6 +5,7 @@
   <p class="posts-meta">チーム: <%= @team.name %></p>
   <p class="posts-meta">カテゴリー: <%= @category.name %></p>
 
+
   <div class="posts-search">
     <%= form_with method: :get, local: true do |f| %>
       <%= f.text_field :search %>

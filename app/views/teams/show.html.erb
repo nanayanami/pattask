@@ -1,12 +1,19 @@
-<%# 完了 %>
+<%# 投稿一覧にあるカテゴリー一覧に戻るはここにたどり着く　だけどチーム選択してたどり着くカテゴリー一覧はcategories.indexに遷移する %>
 
 <div class="posts cover">
   <h1 class="posts-title">カテゴリー一覧</h1>
   <p class="posts-meta">チーム: <%= @team.name %></p>
 
+  <div class="posts-search">
+     <%= form_with url: team_categories_path(@team), method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit '検索する',name:nil %>
+    <% end %>
+  </div>
+
   <%= link_to "新規カテゴリーを作成", new_team_category_path(@team) , class: "btn btn-primary btn-lg posts-new" %>
 
-  <% @team.categories.each do |category| %>
+  <% @categories.each do |category| %>
     <div class="post-item">
       <div class="d-flex justify-content-between align-items-center post-head w-100">
         <h3 class="mb-0 post-title"><%= link_to category.name, team_category_path(@team, category) %></h3>
@@ -21,4 +28,8 @@
       </div>
     </div>
   <% end %>
+
+  <div class="pagination-wrapper">
+    <%= paginate @categories %>
+  </div>
 </div>

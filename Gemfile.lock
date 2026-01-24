@@ -116,6 +116,8 @@ GEM
       responders
       warden (~> 1.2.3)
     drb (2.2.3)
+    enum_help (0.0.20)
+      activesupport (>= 3.0.0)
     erb (6.0.1)
     erubi (1.13.1)
     ffi (1.17.3-x64-mingw-ucrt)
@@ -321,6 +323,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  enum_help
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

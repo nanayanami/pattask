@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_team
   before_action :set_category
+  before_action :set_post, only: %i[show edit update destroy]
 
   def new
     @post = @category.posts.build
@@ -19,20 +20,23 @@ class PostsController < ApplicationController
 
   def index
     @posts = @category.posts.page(params[:page]).reverse_order
+    if params[:search].present?
+      query = "%#{params[:search]}%"
+      @posts = @posts
+               .left_joins(:rich_text_content)
+               .where('posts.title LIKE :q OR action_text_rich_texts.body LIKE :q', q: query)
+    end
   end
 
   def show
-    @post = @category.posts.find(params[:id])
     @comment = Comment.new
     @comments = @post.comments.page(params[:page]).per(7).reverse_order
   end
 
   def edit
-    @post = @category.posts.find(params[:id])
   end
 
   def update
-    @post = @category.posts.find(params[:id])
     @post.user ||= current_user
     if @post.update(post_params)
       redirect_to team_category_post_path(@team, @category, @post), notice: '投稿を更新しました'
@@ -42,7 +46,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = @category.posts.find(params[:id])
     if @post.destroy
       redirect_to team_category_posts_path(@team, @category), notice: '投稿を削除しました'
     else
@@ -61,6 +64,10 @@ class PostsController < ApplicationController
 
   def set_category
     @category = @team.categories.find(params[:category_id])
+  end
+
+  def set_post
+    @post = @category.posts.find(params[:id])
   end
 
   def post_params

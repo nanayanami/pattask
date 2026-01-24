@@ -16,19 +16,19 @@ class TeamsController < ApplicationController
 
   def index
     @teams = Team.page(params[:page]).reverse_order
+    @teams = @teams.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   
   def show
     @categories = @team.categories.page(params[:page]).reverse_order
+    @categories = @categories.where('name LIKE ?', "%#{params[:search]}%") if params[:search].present?
   end
 
   def edit
-    @team = Team.find(params[:id])
   end
 
   def update
-    @team = Team.find(params[:id])
     if @team.update(team_params)
       redirect_to team_path(@team), notice: 'チームを更新しました'
     else
@@ -37,7 +37,6 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team = Team.find(params[:id])
     if @team.destroy
       redirect_to teams_path, notice: 'チームを削除しました'
     else

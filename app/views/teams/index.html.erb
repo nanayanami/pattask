@@ -3,6 +3,16 @@
 <div class="posts cover">
   <h1 class="posts-title">チーム一覧</h1>
 
+  
+  <div class="posts-search">
+    <%= form_with method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit '検索する',name:nil %>
+    <% end %>
+  </div>
+
+  
+
   <%= link_to "チーム作成", new_team_path, class: "btn btn-primary btn-lg posts-new me-2" %>
   <%= link_to "トップページに戻る", root_path, class: "btn btn-primary btn-lg posts-new" %><br>
 
