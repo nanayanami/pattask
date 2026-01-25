@@ -21,7 +21,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @posts = @category.posts.page(params[:page]).reverse_order
+    @posts = @category.posts.published.page(params[:page]).reverse_order
     if params[:search].present?
       query = "%#{params[:search]}%"
       @posts = @posts
@@ -47,6 +47,10 @@ class CategoriesController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+
+    def confirm
+      @posts =current_user.posts.draft.page(params[:page]).reverse_order
+    end
   end
 
   private
@@ -64,5 +68,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def post_params
+    params.require(:post).permit(:user_id, :title, :content, :image_id, :status)
   end
 end
