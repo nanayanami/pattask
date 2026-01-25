@@ -5,5 +5,36 @@
   <p class="posts-meta">チーム: <%= @team.name %></p>
   <p class="posts-meta">カテゴリー: <%= @category.name %></p>
 
-  <%= render "posts/index", posts: @posts, team: @team, category: @category %>
+<div class="posts-search">
+    <%= form_with method: :get, local: true do |f| %>
+      <%= f.text_field :search %>
+      <%= f.submit '検索する',name:nil %>
+    <% end %>
+  </div>
+  
+  
+
+  <%= link_to "新規投稿", new_team_category_post_path(@team, @category), class: "btn btn-primary btn-lg posts-new" %>
+
+  <% @posts.each do |post| %>
+    <div class="post-item">
+      <div class="d-flex justify-content-between align-items-center post-head">
+        <h3 class="mb-0 post-title"><%= link_to post.title, team_category_post_path(@team, @category, post) %></h3>
+        <div class="d-flex gap-2 post-actions">
+          <%= link_to "編集", edit_team_category_post_path(@team, @category, post), class: "btn btn-success btn-sm btn-edit" %>
+          <%= link_to "削除", team_category_post_path(@team, @category, post),
+                      data: { turbo_method: :delete, turbo_confirm: "削除してよろしいですか？" },
+                      class: "btn btn-danger btn-sm btn-del" %>
+        </div>
+      </div>
+
+      <p class="caption"><%= post.user.name %></p>
+      <p class="caption"><%= "#{post.comments.count} コメント" %></p>
+      <p class="post-body"><%= truncate(post.content.to_plain_text, length: 100) %></p>
+    </div>
+  <% end %>
+
+  <div class="pagination-wrapper">
+    <%= paginate @posts %>
+  </div>
 </div>

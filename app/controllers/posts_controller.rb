@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_team
-  before_action :set_category
+  before_action :set_team, except: %i[confirm]
+  before_action :set_category, except: %i[confirm]
   before_action :set_post, only: %i[show edit update destroy]
 
   def new
@@ -51,11 +51,10 @@ class PostsController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
 
-    def confirm
-      @posts =current_user.posts.draft.page(params[:page]).reverse_order
-    end
-
+  def confirm
+    @posts = current_user.posts.draft.page(params[:page]).reverse_order
   end
 
 

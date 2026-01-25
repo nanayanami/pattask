@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  get 'posts/confirm', to: 'posts#confirm', as: :confirm_posts
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :follows, :followers
@@ -12,7 +13,8 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy]
         resource :favorites, only: [:create, :destroy]
         collection do
-          get 'confilm'
+          get 'confirm'
+        end
       end
     end
   end
