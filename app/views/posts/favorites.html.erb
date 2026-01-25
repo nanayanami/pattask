@@ -8,6 +8,13 @@
           <%= link_to post.title, team_category_post_path(post.team, post.category, post) %>
         </h3>
         <div class="d-flex gap-2 post-actions">
+          <%= render "posts/progress_badge", post: post %>
+          <% if post.completed? %>
+            <%= button_to "進捗に戻す",
+                          uncomplete_team_category_post_path(post.team, post.category, post),
+                          method: :patch,
+                          class: "btn btn-sm btn-uncomplete" %>
+          <% end %>
           <%= link_to "ブックマーク解除",
                       team_category_post_favorites_path(post.team, post.category, post, redirect_to: "favorites"),
                       data: { turbo_method: :delete },

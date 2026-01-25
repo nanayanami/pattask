@@ -6,6 +6,32 @@
       <h1 class="posts-title"><%= @post.title %></h1>
       <p class="posts-meta">チーム: <%= @team.name %></p>
       <p class="posts-meta">カテゴリー: <%= @category.name %></p>
+      <div class="post-progress-box mb-3">
+        <%= render "posts/progress_badge", post: @post %>
+        <% unless @post.completed? %>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <% Post.progress_statuses.keys.each do |key| %>
+              <% button_class = @post.progress_status == key ? Post::PROGRESS_BUTTON_CLASSES[key.to_sym] : "btn-outline-#{Post::PROGRESS_BUTTON_CLASSES[key.to_sym].delete_prefix('btn-')}" %>
+              <%= button_to Post::PROGRESS_LABELS[key.to_sym],
+                            update_progress_team_category_post_path(@team, @category, @post, progress_status: key),
+                            method: :patch,
+                            class: "btn btn-sm #{button_class}" %>
+            <% end %>
+            <%= button_to "完了にする",
+                          complete_team_category_post_path(@team, @category, @post),
+                          method: :patch,
+                          class: "btn btn-sm btn-complete" %>
+          </div>
+        <% else %>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            <p class="text-muted small mb-0">完了済みのため進捗ボタンは非表示です。</p>
+            <%= button_to "進捗に戻す",
+                          uncomplete_team_category_post_path(@team, @category, @post),
+                          method: :patch,
+                          class: "btn btn-sm btn-uncomplete" %>
+          </div>
+        <% end %>
+      </div>
 
       <% if @post.errors.any? %>
         <div class="card text-center text-white bg-danger mb-3">

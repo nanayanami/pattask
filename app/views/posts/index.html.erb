@@ -21,6 +21,13 @@
       <div class="d-flex justify-content-between align-items-center post-head">
         <h3 class="mb-0 post-title"><%= link_to post.title, team_category_post_path(@team, @category, post) %></h3>
         <div class="d-flex gap-2 post-actions">
+          <%= render "posts/progress_badge", post: post %>
+          <% if post.completed? %>
+            <%= button_to "進捗に戻す",
+                          uncomplete_team_category_post_path(@team, @category, post),
+                          method: :patch,
+                          class: "btn btn-sm btn-uncomplete" %>
+          <% end %>
           <%= link_to "編集", edit_team_category_post_path(@team, @category, post), class: "btn btn-success btn-sm btn-edit" %>
           <%= link_to "削除", team_category_post_path(@team, @category, post),
                       data: { turbo_method: :delete, turbo_confirm: "削除してよろしいですか？" },

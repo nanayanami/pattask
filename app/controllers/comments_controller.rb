@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
+    before_action :set_team
+    before_action :set_category
+    before_action :set_post
+    before_action :set_comment, only: [:destroy]
+
     def create
-        @team = Team.find(params[:team_id])
-        @category = @team.categories.find(params[:category_id])
-        @post = @category.posts.find(params[:post_id])
         @comment = @post.comments.build(comment_params)
         @comment.user_id = current_user.id
         if @comment.save
@@ -15,9 +17,8 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = Comment.find(params[:id])
         @comment.destroy
-        redirect_to team_category_post_path(params[:team_id], params[:category_id], @comment.post),
+        redirect_to team_category_post_path(@team, @category, @comment.post),
                     notice: 'コメントを削除'
     end
 
@@ -27,11 +28,19 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:comment)
     end
 
+    def set_team
+        @team = Team.find(params[:team_id])
+    end
+
+    def set_category
+        @category = @team.categories.find(params[:category_id])
+    end
+
     def set_post
-        @post = Post.find(params[:post_id])
+        @post = @category.posts.find(params[:post_id])
     end
 
     def set_comment
-        @comment = @post.comments.find(params[:id])
+        @comment = Comment.find(params[:id])
     end
 end

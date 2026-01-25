@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_24_072821) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_25_120000) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -84,6 +84,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_24_072821) do
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "progress_status", default: 1, null: false
+    t.boolean "completed", default: false, null: false
   end
 
   create_table "relationships", force: :cascade do |t|

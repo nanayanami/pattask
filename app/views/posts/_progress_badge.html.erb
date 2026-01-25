@@ -1,0 +1,7 @@
+<div class="d-flex flex-wrap gap-2 align-items-center progress-wrap">
+  <% if post.completed? %>
+    <span class="badge progress-complete">完了</span>
+  <% else %>
+    <span class="badge progress-status <%= post.progress_status %>"><%= post.progress_label %></span>
+  <% end %>
+</div>

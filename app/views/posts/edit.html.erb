@@ -29,7 +29,16 @@
             <%= f.rich_text_area :content %>
           </div>
           <div class="form-group mb-3">
-                        <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
+            <label class="form-label">進捗状況</label>
+            <%= f.select :progress_status,
+                         Post.progress_statuses.keys.map { |k| [Post::PROGRESS_LABELS[k.to_sym], k] },
+                         {},
+                         { class: "form-select w-50 mb-3" } %>
+            <div class="form-check mb-3">
+              <%= f.check_box :completed, class: "form-check-input" %>
+              <label class="form-check-label">完了にする</label>
+            </div>
+            <%= f.select :status, Post.statuses.keys.map { |k| [t("enums.post.status.#{k}"),k]}, {}, {class: "custom-select w-25 mb-3"} %>
             <%= f.submit "更新する", class: "btn btn-primary" %>
           </div>
         <% end %>

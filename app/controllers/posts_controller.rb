@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_team, except: %i[confirm favorites]
   before_action :set_category, except: %i[confirm favorites]
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show edit update destroy update_progress complete uncomplete]
 
   def new
     @post = @category.posts.build
@@ -45,6 +45,34 @@ class PostsController < ApplicationController
     end
   end
 
+  def update_progress
+    unless Post.progress_statuses.key?(params[:progress_status])
+      return redirect_back fallback_location: team_category_post_path(@team, @category, @post), alert: "不正な進捗です"
+    end
+
+    if @post.update(progress_status: params[:progress_status])
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), notice: "進捗を更新しました"
+    else
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), alert: "進捗の更新に失敗しました"
+    end
+  end
+
+  def complete
+    if @post.update(completed: true)
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), notice: "完了にしました"
+    else
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), alert: "完了にできませんでした"
+    end
+  end
+
+  def uncomplete
+    if @post.update(completed: false)
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), notice: "進捗に戻しました"
+    else
+      redirect_back fallback_location: team_category_post_path(@team, @category, @post), alert: "進捗に戻せませんでした"
+    end
+  end
+
   def destroy
     if @post.destroy
       redirect_to team_category_posts_path(@team, @category), notice: '投稿を削除しました'
@@ -83,6 +111,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:user_id, :title, :content, :image_id, :status)
+    params.require(:post).permit(:user_id, :title, :content, :image_id, :status, :progress_status, :completed)
   end
 end
