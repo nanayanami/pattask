@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'posts/confirm', to: 'posts#confirm', as: :confirm_posts
+  get 'posts/favorites', to: 'posts#favorites', as: :favorite_posts
   resources :users, only: [:index, :show, :edit, :update] do
     member do
       get :follows, :followers

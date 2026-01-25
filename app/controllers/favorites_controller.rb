@@ -10,6 +10,10 @@ class FavoritesController < ApplicationController
     post = Post.find(params[:post_id])
     favorite = post.favorites.find_by(user: current_user)
     favorite&.destroy
-    redirect_to team_category_post_path(params[:team_id], params[:category_id], post)
+    if params[:redirect_to] == 'favorites'
+      redirect_to favorite_posts_path
+    else
+      redirect_to team_category_post_path(params[:team_id], params[:category_id], post)
+    end
   end
 end

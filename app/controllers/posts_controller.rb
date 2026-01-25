@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-  before_action :set_team, except: %i[confirm]
-  before_action :set_category, except: %i[confirm]
+  before_action :set_team, except: %i[confirm favorites]
+  before_action :set_category, except: %i[confirm favorites]
   before_action :set_post, only: %i[show edit update destroy]
 
   def new
@@ -55,6 +55,14 @@ class PostsController < ApplicationController
 
   def confirm
     @posts = current_user.posts.draft.page(params[:page]).reverse_order
+  end
+
+  def favorites
+    @posts = Post.joins(:favorites)
+                 .where(favorites: { user_id: current_user.id })
+                 .includes(:team, :category, :user)
+                 .page(params[:page])
+                 .reverse_order
   end
 
 
