@@ -1,8 +1,9 @@
 <% if resource.errors.any? %>
   <div id="error_explanation" data-turbo-cache="false">
     <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% ordered_attributes = [:name, :email, :password, :password_confirmation, :current_password] %>
+      <% resource.errors.sort_by { |error| ordered_attributes.index(error.attribute) || ordered_attributes.length }.each do |error| %>
+        <li><%= (error.attribute == :password_confirmation && error.type == :confirmation) ? "パスワードとパスワード（確認）の入力が一致しません" : resource.errors.full_message(error.attribute, error.message) %></li>
       <% end %>
     </ul>
   </div>

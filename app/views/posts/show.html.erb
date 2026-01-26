@@ -60,15 +60,13 @@
       </p>
 
       <div class="post-head">
-        <% if @post.user == current_user %>
-          <div class="d-flex gap-2 post-actions">
-            <%= link_to "編集する", edit_team_category_post_path(@team, @category, @post),
-                        class: "btn btn-success btn-sm btn-edit" %>
-            <%= link_to "削除する", team_category_post_path(@team, @category, @post),
-                        data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" },
-                        class: "btn btn-danger btn-sm btn-del" %>
-          </div>
-        <% end %>
+        <div class="d-flex gap-2 post-actions">
+          <%= link_to "編集する", edit_team_category_post_path(@team, @category, @post),
+                      class: "btn btn-success btn-sm btn-edit" %>
+          <%= link_to "削除する", team_category_post_path(@team, @category, @post),
+                      data: { turbo_method: :delete, turbo_confirm: "本当に消しますか？" },
+                      class: "btn btn-danger btn-sm btn-del" %>
+        </div>
 
 
         <div class="post-back">

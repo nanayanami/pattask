@@ -39,7 +39,7 @@ class PostsController < ApplicationController
   def update
     @post.user ||= current_user
     if @post.update(post_params)
-      redirect_to team_category_post_path(@team, @category, @post), notice: '投稿を更新しました'
+      redirect_to team_category_posts_path(@team, @category), notice: '投稿を更新しました'
     else
       render :edit, status: :unprocessable_entity
     end
