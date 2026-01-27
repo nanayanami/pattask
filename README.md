@@ -44,8 +44,10 @@
 - ユーザー新規登録を行う、またはログインする<br>
   <img width="465" height="281" alt="image" src="https://github.com/user-attachments/assets/2b8006a4-93d3-40a9-9ea3-1a539300d2cb" />
 
-- チーム、カテゴリー、投稿でタスクを分類分けする
-- タスクの進捗状況を一覧で管理/メンバー同士の案件における成功事例やリカバリー策の共有
+- チーム、カテゴリー、投稿でタスクを分類分けする<br>
+  <img width="546" height="185" alt="image" src="https://github.com/user-attachments/assets/7fba603e-257c-4e7e-bee7-f22a1a14d303" />
+
+- タスクの進捗状況を投稿一覧や詳細で管理/メンバー同士の案件における成功事例やリカバリー策の共有
 <img width="747" height="547" alt="image" src="https://github.com/user-attachments/assets/91f8c77d-f52c-4683-a604-cda4d280bc92" />
 <img width="749" height="389" alt="image" src="https://github.com/user-attachments/assets/e0df015d-99f8-4aa2-8cd4-4d5c6ea11670" />
 <img width="746" height="535" alt="image" src="https://github.com/user-attachments/assets/46a1bb59-e3bf-4983-b976-f831f5972589" />
