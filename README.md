@@ -42,6 +42,8 @@
 
 # 利用方法
 - ユーザー新規登録を行う、またはログインする
+  <img width="465" height="281" alt="image" src="https://github.com/user-attachments/assets/2b8006a4-93d3-40a9-9ea3-1a539300d2cb" />
+
 <img width="767" height="884" alt="image" src="https://github.com/user-attachments/assets/07273800-a70d-412e-a9e0-7611fff8e906" />
 <img width="376" height="500" alt="image" src="https://github.com/user-attachments/assets/ca263f5e-bbb9-4391-a1a0-e18319af3686" />
 
