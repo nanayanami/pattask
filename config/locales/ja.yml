@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      post:
+        title: "タイトル"
+        content: "本文"
+      team:
+        name: "チーム名"
+      category:
+        name: "カテゴリー名"
+      comment:
+        comment: "コメント"
+    errors:
+      models:
+        team:
+          attributes:
+            name:
+              blank: "を入力して下さい"
+        category:
+          attributes:
+            name:
+              blank: "を入力して下さい"
+        comment:
+          attributes:
+            comment:
+              blank: "を入力してください"
