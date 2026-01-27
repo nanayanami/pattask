@@ -41,7 +41,7 @@
 - チーム制作を行っている人
 
 # 利用方法
-- ユーザー新規登録を行う、またはログインする
+- ユーザー新規登録を行う、またはログインする<br>
   <img width="465" height="281" alt="image" src="https://github.com/user-attachments/assets/2b8006a4-93d3-40a9-9ea3-1a539300d2cb" />
 
 <img width="767" height="884" alt="image" src="https://github.com/user-attachments/assets/07273800-a70d-412e-a9e0-7611fff8e906" />
