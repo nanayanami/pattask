@@ -5,7 +5,7 @@
       <% if user.profile_image.attached? %>
         <%= image_tag user.profile_image, size: '50x50', class: "mt-3 profile-img" %>
       <% else %>
-        <%= image_tag "no_image.svg", size: '50x50', class: "mt-3 profile-img" %>
+        <%= image_tag asset_path("no_image.svg"), size: '50x50', class: "mt-3 profile-img" %>
       <% end %>
       <%= link_to user.name, user_path(user), class: "user-name" %>
     </div>
