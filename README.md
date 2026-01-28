@@ -55,9 +55,9 @@
   <img width="410" height="287" alt="image" src="https://github.com/user-attachments/assets/4a36453d-5c72-4412-83a1-d6517c264c25" />
   
 - 表現力豊かなリッチテキストエディタ搭載<br>
-  <img width="402" height="280" alt="image" src="https://github.com/user-attachments/assets/4150e454-39d8-44d4-9d91-96a71ab9b6df" />
+  <img width="458" height="284" alt="image" src="https://github.com/user-attachments/assets/77e3b818-1266-4c44-8b7b-0e3c00951abd" />
   
-- 自身の仕事の進捗状況や、課題整理が可能/コメント機能を付けることでフォロー体制を整える
+- 自身の仕事の進捗状況や、課題整理が可能/コメント機能を付けることでフォロー体制を整える<br>
   <img width="463" height="275" alt="image" src="https://github.com/user-attachments/assets/81b4c2cf-3475-4619-abf1-3b5c0124f0b8" />
 
 
