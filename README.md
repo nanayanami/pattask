@@ -66,11 +66,11 @@
 - マイページ、ユーザー機能により各自が受け持つ仕事内容を整理<br>
   <img width="461" height="271" alt="image" src="https://github.com/user-attachments/assets/62c6cb02-18b2-47b7-8cad-20bde31e5b53" />
 
-
-
-
 - ブックマーク機能やフォロー機能により、チームメンバーやマネージャーの進捗状況把握をスムーズにする<br>
   <img width="466" height="354" alt="image" src="https://github.com/user-attachments/assets/9ca44c8e-9bc5-44a7-a2b8-a053ed4f2273" />
+
+- チーム/カテゴリー/投稿単位で検索機能追加<br>
+  <img width="356" height="146" alt="image" src="https://github.com/user-attachments/assets/fff62e2d-fb28-42f2-915c-99703b16bec5" />
 
   
 # 機能一覧
