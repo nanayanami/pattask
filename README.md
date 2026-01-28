@@ -63,8 +63,8 @@
 
 
 - マイページ、ユーザー機能により各自が受け持つ仕事内容を整理
- <img width="751" height="414" alt="image" src="https://github.com/user-attachments/assets/64dc9241-6d1e-43a2-a488-ed80d461a2d5" />
-![Uploading image.png…]()
+  <img width="461" height="271" alt="image" src="https://github.com/user-attachments/assets/62c6cb02-18b2-47b7-8cad-20bde31e5b53" />
+
 
 
 
