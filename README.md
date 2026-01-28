@@ -62,16 +62,14 @@
   <img width="463" height="275" alt="image" src="https://github.com/user-attachments/assets/81b4c2cf-3475-4619-abf1-3b5c0124f0b8" />
 
 
-- マイページ、ユーザー機能により各自が受け持つ仕事内容を整理
+- マイページ、ユーザー機能により各自が受け持つ仕事内容を整理<br>
   <img width="461" height="271" alt="image" src="https://github.com/user-attachments/assets/62c6cb02-18b2-47b7-8cad-20bde31e5b53" />
 
 
 
 
-- ブックマーク機能やフォロー機能により、チームメンバーやマネージャーの進捗状況把握をスムーズにする
-  <img width="747" height="254" alt="image" src="https://github.com/user-attachments/assets/0a67af6c-a0a7-4a42-81e3-42ffac4f377f" />
-  <img width="747" height="333" alt="image" src="https://github.com/user-attachments/assets/9a430fa2-6e7a-43bb-90b1-7ab515f93370" />
-
+- ブックマーク機能やフォロー機能により、チームメンバーやマネージャーの進捗状況把握をスムーズにする<br>
+  <img width="466" height="354" alt="image" src="https://github.com/user-attachments/assets/9ca44c8e-9bc5-44a7-a2b8-a053ed4f2273" />
 
   
 # 機能一覧
