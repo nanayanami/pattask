@@ -4,6 +4,9 @@
 <img width="130％" alt="ロゴ" src="https://github.com/user-attachments/assets/54d07db2-860c-4c8e-aa06-e509fe16d3ff" />
 
 
+<img width="528" height="50" alt="image" src="https://github.com/user-attachments/assets/5eb9f108-38c9-44ea-9c8d-9d7817c3127f" />
+
+
 # 概要
 「あれ、この案件は目標に対しどこまで進んでいるのだろう…？」という、ビジネスマンが一度は経験する心理的不安を解決するために開発しました。
  日々のタスクを整理し、目標までの道のりを「見える化」することで、ユーザーは適切なスケジュールを組むことができるようになります。
