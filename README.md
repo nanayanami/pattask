@@ -49,10 +49,12 @@
 
 - チーム、カテゴリー、投稿でタスクを分類分けする<br>
   <img width="546" height="185" alt="image" src="https://github.com/user-attachments/assets/7fba603e-257c-4e7e-bee7-f22a1a14d303" />
-  <img width="268" height="185" alt="image" src="https://github.com/user-attachments/assets/a95bc059-fe68-4763-8fc6-0cbf646a44e1" />
 
 
 - タスクの進捗状況を投稿一覧や詳細で管理/メンバー同士の案件における成功事例やリカバリー策の共有
+  <img width="410" height="287" alt="image" src="https://github.com/user-attachments/assets/4a36453d-5c72-4412-83a1-d6517c264c25" />
+
+- 
 <img width="747" height="547" alt="image" src="https://github.com/user-attachments/assets/91f8c77d-f52c-4683-a604-cda4d280bc92" />
 <img width="749" height="389" alt="image" src="https://github.com/user-attachments/assets/e0df015d-99f8-4aa2-8cd4-4d5c6ea11670" />
 <img width="746" height="535" alt="image" src="https://github.com/user-attachments/assets/46a1bb59-e3bf-4983-b976-f831f5972589" />
