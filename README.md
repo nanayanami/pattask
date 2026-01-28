@@ -52,6 +52,9 @@
 
 
 - タスクの進捗状況を投稿一覧や詳細で管理/メンバー同士の案件における成功事例やリカバリー策の共有<br>
+  <img width="463" height="275" alt="image" src="https://github.com/user-attachments/assets/81b4c2cf-3475-4619-abf1-3b5c0124f0b8" />
+
+
   <img width="410" height="287" alt="image" src="https://github.com/user-attachments/assets/4a36453d-5c72-4412-83a1-d6517c264c25" />
   
 - 表現力豊かなリッチテキストエディタ搭載<br>
