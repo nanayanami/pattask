@@ -52,16 +52,14 @@
 
 
 - タスクの進捗状況を投稿一覧や詳細で管理/メンバー同士の案件における成功事例やリカバリー策の共有<br>
-  <img width="463" height="275" alt="image" src="https://github.com/user-attachments/assets/81b4c2cf-3475-4619-abf1-3b5c0124f0b8" />
-
-
   <img width="410" height="287" alt="image" src="https://github.com/user-attachments/assets/4a36453d-5c72-4412-83a1-d6517c264c25" />
   
 - 表現力豊かなリッチテキストエディタ搭載<br>
   <img width="402" height="280" alt="image" src="https://github.com/user-attachments/assets/4150e454-39d8-44d4-9d91-96a71ab9b6df" />
   
 - 自身の仕事の進捗状況や、課題整理が可能/コメント機能を付けることでフォロー体制を整える
-<img width="1514" height="823" alt="image" src="https://github.com/user-attachments/assets/a120d8d2-4c94-44be-8ebf-61a970e72323" />
+  <img width="463" height="275" alt="image" src="https://github.com/user-attachments/assets/81b4c2cf-3475-4619-abf1-3b5c0124f0b8" />
+
 
 - マイページ、ユーザー機能により各自が受け持つ仕事内容を整理
  <img width="751" height="414" alt="image" src="https://github.com/user-attachments/assets/64dc9241-6d1e-43a2-a488-ed80d461a2d5" />
