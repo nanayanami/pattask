@@ -32,12 +32,14 @@
   overflow: auto;
 }
 
-//rich-text-groupの画像が投稿詳細で表示されるようにするためのコード
-  .trix-content img,
-  .action-text-attachment img {
-    max-width: 100%;
-    height: auto;
-  }
+// リッチテキストの画像サイズを控えめにする
+.p-form .rich-text-group .trix-content img,
+.p-form .rich-text-group .action-text-attachment img,
+.post-content-box .trix-content img,
+.post-content-box .action-text-attachment img {
+  max-width: 320px;
+  height: auto;
+}
 
   .post-body {
     margin-top: 6px;
