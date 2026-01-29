@@ -10,7 +10,7 @@ services:
     env: ruby
     region: Oregon
     plan: free
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "bash ./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     preDeployCommand: ./bin/rails db:migrate
     envVars:
