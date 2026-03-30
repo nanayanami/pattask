@@ -87,3 +87,8 @@ gem 'devise-i18n'
 group :production do
   gem "pg"
 end
+gem "cloudinary", "~> 2.4"
+
+group :development, :test do
+  gem 'dotenv-rails'
+end
