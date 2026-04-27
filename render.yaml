@@ -1,5 +1,5 @@
 databases:
-  - name: pattask-db
+  - name: patask-db
     databaseName: pattask
     user: pattask_user
     region: Oregon
